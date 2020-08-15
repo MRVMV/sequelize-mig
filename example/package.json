@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:makeMigration": "node ../bin/makeMigration.js --migrations-path './example/migrations' --models-path './example/models'",
+    "db:runMigration": "node ../bin/runMigration.js --migrations-path './example/migrations' --models-path './example/models'"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "sequelize": "^4.42.0",
-    "sqlite3": "^4.0.4"
+    "sequelize": "^6.3.4",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.0"
   }
 }
