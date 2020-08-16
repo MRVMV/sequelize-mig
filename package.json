@@ -1,10 +1,11 @@
 {
-  "name": "sequelize-auto-migrations",
+  "name": "sequelize-mig",
   "version": "1.2.0",
   "description": "Sequelize migrations generator && runner",
   "main": "index.js",
   "private": false,
   "bin": {
+    "sequelize-mig": "./bin/sequelize-mig",
     "runMigration": "./bin/runMigration.js",
     "makeMigration": "./bin/makeMigration.js"
   },
@@ -13,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrvmv/sequelize-auto-migrations.git"
+    "url": "git+https://github.com/mrvmv/sequelize-mig.git"
   },
   "keywords": [
     "sequelize",
@@ -26,9 +27,9 @@
   "author": "MRVMV",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mrvmv/sequelize-auto-migrations/issues"
+    "url": "https://github.com/mrvmv/sequelize-mig/issues"
   },
-  "homepage": "https://github.com/mrvmv/sequelize-auto-migrations#readme",
+  "homepage": "https://github.com/mrvmv/sequelize-mig#readme",
   "dependencies": {
     "async": "^3.2.0",
     "command-line-args": "^5.0.2",
@@ -36,6 +37,7 @@
     "js-beautify": "^1.8.9",
     "lodash": "^4.17.11",
     "object-hash": "^2.0.3",
-    "sequelize": "^6.3.4"
+    "sequelize": "^6.3.4",
+    "yargs": "^15.4.1"
   }
 }
