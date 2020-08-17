@@ -49,26 +49,10 @@ const argv = yargs
   .demandCommand(1, 'Please specify a command')
   .recommendCommands().argv;
 
-// _index.view.teaser();
+// TODO:
 
-// .command('init', 'Initializes project', _init.default)
-// .command('init:config', 'Initializes configuration', _init.default)
-// .command('init:migrations', 'Initializes migrations', _init.default)
-// .command('init:models', 'Initializes models', _init.default)
-// .command('init:seeders', 'Initializes seeders', _init.default)
-
-// .command(
-//   ['migration:generate', 'migration:create'],
-//   'Generates a new migration file',
-//   _migration_generate.default
-// )
-// .command(
-//   ['model:generate', 'model:create'],
-//   'Generates a model and its migration',
-//   _model_generate.default
-// )
-// .command(
-//   ['seed:generate', 'seed:create'],
-//   'Generates a new seed file',
-//   _seed_generate.default
-// )
+// .command('init', 'Initializes project')
+// .command('init:config', 'Initializes configuration')
+// .command('init:migrations', 'Initializes migrations')
+// .command('init:models', 'Initializes models')
+// .command('init:seeders', 'Initializes seeders')
