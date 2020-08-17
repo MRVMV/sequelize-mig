@@ -1,5 +1,5 @@
 # sequelize-mig
-Migration generator and es6 init tool (Planned)
+Sequelize migration generator and es6 init tool (Planned)
 
 This package provide two tools:
 * `make` - tool for create new migrations by comparing new version of you modules to old one

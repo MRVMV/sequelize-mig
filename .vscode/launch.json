@@ -29,6 +29,14 @@
       ],
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/bin/makemigration.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "test migration:make",
+      "args": ["migration:make", "-n", "Hi"],
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/bin/sequelize-mig.mjs"
     }
   ]
 }
