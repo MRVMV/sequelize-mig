@@ -26,10 +26,12 @@
         "--migrations-path",
         "./example/migrations",
         "--models-path",
-        "./example/models"
+        "./example/models",
+        "--package-path",
+        "./example/package.json"
       ],
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/bin/sequelize-mig.mjs"
+      "program": "${workspaceFolder}/bin/sequelize-mig.js"
     },
     {
       "type": "node",
@@ -37,7 +39,7 @@
       "name": "test migration:make",
       "args": ["migration:make", "-n", "Hi"],
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/bin/sequelize-mig.mjs"
+      "program": "${workspaceFolder}/bin/sequelize-mig.js"
     }
   ]
 }

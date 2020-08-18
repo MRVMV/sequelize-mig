@@ -2,13 +2,14 @@ import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
 
-import migrate from '../../lib/migrate.cjs';
+import migrate from '../../lib/migrate.js';
 
-import pathConfig from '../../lib/pathConfig.cjs';
+import prettier from 'prettier';
 
-const fs = require('fs');
-const path = require('path');
-const _ = require('lodash');
+import pathConfig from '../../lib/pathConfig.js';
+import fs from 'fs';
+import path from 'path';
+import _ from 'lodash';
 
 export default function make(argv) {
   // Windows support
@@ -85,7 +86,9 @@ export default function make(argv) {
   if (argv.preview) {
     console.log('Migration result:');
     console.log(
-      beautify('[ \n' + migration.commandsUp.join(', \n') + ' \n];\n')
+      prettier.format('[ \n' + migration.commandsUp.join(', \n') + ' \n];\n', {
+        parser: 'babel',
+      })
     );
     process.exit(0);
   }

@@ -19,18 +19,27 @@ Or
 * Init sequelize, with sequelize-cli, using `sequelize init` (or using es6 models by sequelize-mig -Planned-)
 * Create your models manually or using sequelize-cli
 * Create initial migration - run:
-`sequelize-mig make --n <migration name>`
+`sequelize-mig migration:make --n <migration name>`
 
 To preview new migration, without any changes, you can run:
 
-`sequelize-mig make --preview`
+`sequelize-mig migration:make --preview`
 
-`make` tool creates `_current.json` and `_current_bak.json` files in `migrations` dir, these are used to calculate difference to the next migration. Do not remove them!
+`migration:make` tool creates `_current.json` and `_current_bak.json` files in `migrations` dir, these are used to calculate difference to the next migration. Do not remove them!
+
+## Limitations
+The migration:make tool supports auto detecting these actions
+    'dropTable','removeColumn','removeIndex',
+    'createTable','addColumn','addIndex',
+    'changeColumn'
+and Im trying to find a way to know old column name to implement renameColumn because it's know translated to removeColumn then addColumn
 
 ## Notes
 * You will be able to make index and modules as es6 but keep migration files as es5 because sequelize-cli isn't compatible with it.
+
 ## TODO:
 * Allow init using es6 modules
+* Adding renameColumn
 
 ## Credits
 * Forked from Scimonster/sequelize-auto-migrations which is forked from flexxnn/sequelize-auto-migrations

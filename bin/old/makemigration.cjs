@@ -4,7 +4,7 @@ const commandLineArgs = require('command-line-args');
 const beautify          = require('js-beautify').js_beautify;
 
 let migrate = require("../../lib/migrate.cjs");
-let pathConfig = require('../../lib/pathConfig.cjs');
+let pathConfig = require('../../lib/pathConfig.js');
 
 const fs                = require("fs");
 const path              = require("path");
