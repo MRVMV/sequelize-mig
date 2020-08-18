@@ -75,12 +75,14 @@
         "error",
         "as-needed"
       ],
+      "no-console": "off",
       "indent": "off",
       "no-plusplus": "off",
       "no-param-reassign": "off",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-unused-vars-experimental": [
         "error",
         {

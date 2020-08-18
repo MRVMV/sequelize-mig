@@ -7,5 +7,10 @@
       "previewLimit": 50
     }
   ],
-  "sqltools.useNodeRuntime": true
+  "sqltools.useNodeRuntime": true,
+  "cSpell.words": [
+    "migp",
+    "modp",
+    "pkgp"
+  ]
 }

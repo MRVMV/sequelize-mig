@@ -1,17 +1,16 @@
-import { createRequire } from 'module';
 
-const require = createRequire(import.meta.url);
 
-import migrate from '../../lib/migrate.js';
 
 import prettier from 'prettier';
 
-import pathConfig from '../../lib/pathConfig.js';
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 
-export default function make(argv) {
+import migrate from '../../lib/migrate.js';
+import pathConfig from '../../lib/pathConfig.js';
+
+const make = async (argv) => {
   // Windows support
   if (!process.env.PWD) {
     process.env.PWD = process.cwd();
@@ -49,20 +48,20 @@ export default function make(argv) {
     previousState = JSON.parse(
       fs.readFileSync(path.join(migrationsDir, '_current.json'))
     );
-  } catch (e) {}
+  } catch (e) { /** Error */}
 
-  //console.log(path.join(migrationsDir, '_current.json'), JSON.parse(fs.readFileSync(path.join(migrationsDir, '_current.json') )))
-  let sequelize = require(modelsDir).sequelize;
+  // console.log(path.join(migrationsDir, '_current.json'), JSON.parse(fs.readFileSync(path.join(migrationsDir, '_current.json') )))
+  const {sequelize} = await import(modelsDir);
 
-  let models = sequelize.models;
+  const {models} = sequelize;
 
   currentState.tables = migrate.reverseModels(sequelize, models);
 
-  let upActions = migrate.parseDifference(
+  const upActions = migrate.parseDifference(
     previousState.tables,
     currentState.tables
   );
-  let downActions = migrate.parseDifference(
+  const downActions = migrate.parseDifference(
     currentState.tables,
     previousState.tables
   );
@@ -71,7 +70,7 @@ export default function make(argv) {
   migrate.sortActions(upActions);
   migrate.sortActions(downActions);
 
-  let migration = migrate.getMigration(upActions, downActions);
+  const migration = migrate.getMigration(upActions, downActions);
 
   if (migration.commandsUp.length === 0) {
     console.log('No changes found');
@@ -80,13 +79,13 @@ export default function make(argv) {
 
   // log migration actions
   _.each(migration.consoleOut, (v) => {
-    console.log('[Actions] ' + v);
+    console.log(`[Actions] ${  v}`);
   });
 
   if (argv.preview) {
     console.log('Migration result:');
     console.log(
-      prettier.format('[ \n' + migration.commandsUp.join(', \n') + ' \n];\n', {
+      prettier.format(`[ \n${  migration.commandsUp.join(', \n')  } \n];\n`, {
         parser: 'babel',
       })
     );
@@ -107,12 +106,12 @@ export default function make(argv) {
     JSON.stringify(currentState, null, 4)
   );
 
-  const { type } = require(packageDir);
+  const { type } = await import (packageDir);
 
-  const es6 = argv.es6 == null ? type == 'module' : argv.es6;
+  const es6 = argv.es6 == null ? type === 'module' : argv.es6;
 
   // write migration to file
-  let info = migrate.writeMigration(
+  const info = migrate.writeMigration(
     currentState.revision,
     migration,
     migrationsDir,
@@ -141,3 +140,5 @@ export default function make(argv) {
     );
   } else process.exit(0);
 }
+
+export default make;

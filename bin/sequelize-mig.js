@@ -1,13 +1,13 @@
 import yargs from 'yargs';
 import make from './migration/make.js';
 
-const argv = yargs
+yargs
   .usage('Usage: sequelize-mig <command> [options]')
   .command(
     ['migration:make', 'migration:add'],
     'Make a new migration file by your own updates to models',
-    (yargs) => {
-      yargs
+    (yargsA) =>
+      yargsA
         .positional('name', {
           describe: 'Set migration name (default: "noname")',
           type: 'string',
@@ -43,16 +43,15 @@ const argv = yargs
           type: 'string',
           alias: 'migp',
         })
-        .example('sequelize-mig migration:make --name InitDb').argv;
-    },
-    (argv) => make(argv)
+        .example('sequelize-mig migration:make --name InitDb').argv,
+    (argv) => make(argv),
   )
   .help('h')
   .alias('h', 'help')
   .version('v')
   .alias('v', 'version')
   .demandCommand(1, 'Please specify a command')
-  .recommendCommands().argv;
+  .recommendCommands();
 
 // TODO:
 
