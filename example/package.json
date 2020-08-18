@@ -8,11 +8,13 @@
     "db:makeMigration": "node ../bin/makeMigration.js --migrations-path './example/migrations' --models-path './example/models'",
     "db:runMigration": "node ../bin/runMigration.js --migrations-path './example/migrations' --models-path './example/models'"
   },
-  "author": "",
+  "author": "MRVMV",
   "license": "MIT",
   "dependencies": {
     "sequelize": "^6.3.4",
-    "sequelize-cli": "^6.2.0",
     "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }

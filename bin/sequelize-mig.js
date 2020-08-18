@@ -28,6 +28,11 @@ const argv = yargs
           type: 'string',
           alias: 'c',
         })
+        .positional('package-path', {
+          describe: 'The path to the package file',
+          type: 'string',
+          alias: 'pkgp',
+        })
         .positional('models-path', {
           describe: 'The path to the models folder',
           type: 'string',
@@ -40,7 +45,7 @@ const argv = yargs
         })
         .example('sequelize-mig migration:make --name InitDb').argv;
     },
-    (argv) => make.make(argv)
+    (argv) => make(argv)
   )
   .help('h')
   .alias('h', 'help')
@@ -56,3 +61,8 @@ const argv = yargs
 // .command('init:migrations', 'Initializes migrations')
 // .command('init:models', 'Initializes models')
 // .command('init:seeders', 'Initializes seeders')
+
+// .command(
+//   ['model:generate', 'model:create'],
+//   'Generates a model and its migration'
+// )

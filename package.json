@@ -1,6 +1,7 @@
 {
   "name": "sequelize-mig",
   "version": "1.2.0",
+  "type": "module",
   "description": "Sequelize migration generator and es6 init tool",
   "main": "index.js",
   "private": false,
@@ -8,9 +9,9 @@
     "node": ">=14.0.0"
   },
   "bin": {
-    "sequelize-mig": "./bin/sequelize-mig.mjs",
-    "runMigration": "./bin/runMigration.js",
-    "makeMigration": "./bin/makeMigration.js"
+    "sequelize-mig": "./bin/sequelize-mig.js",
+    "runMigration": "./bin/old/runMigration.cjs",
+    "makeMigration": "./bin/old/makeMigration.cjs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -40,10 +41,12 @@
     "async": "^3.2.0",
     "command-line-args": "^5.0.2",
     "deep-diff": "^1.0.2",
-    "js-beautify": "^1.8.9",
     "lodash": "^4.17.11",
     "object-hash": "^2.0.3",
     "sequelize": "^6.3.4",
     "yargs": "^15.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.7.0"
   }
 }

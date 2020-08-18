@@ -1,25 +1,22 @@
-#!/usr/bin/env node
+import { createRequire } from 'module';
 
-// const beautify = require('js-beautify').js_beautify;
+const require = createRequire(import.meta.url);
 
-let migrate = require('../../lib/migrate');
-let pathConfig = require('../../lib/pathconfig');
+import migrate from '../../lib/migrate.cjs';
+
+import pathConfig from '../../lib/pathConfig.cjs';
 
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
-const methods = {};
-
-methods.make = (argv) => {
-  console.log(`Make Action ${JSON.stringify(argv)}`);
-
+export default function make(argv) {
   // Windows support
   if (!process.env.PWD) {
     process.env.PWD = process.cwd();
   }
 
-  const { migrationsDir, modelsDir } = pathConfig(argv);
+  const { migrationsDir, modelsDir, packageDir } = pathConfig(argv);
 
   if (!fs.existsSync(modelsDir)) {
     console.log(
@@ -107,6 +104,10 @@ methods.make = (argv) => {
     JSON.stringify(currentState, null, 4)
   );
 
+  const { type } = require(packageDir);
+
+  const es6 = argv.es6 == null ? type == 'module' : argv.es6;
+
   // write migration to file
   let info = migrate.writeMigration(
     currentState.revision,
@@ -115,7 +116,7 @@ methods.make = (argv) => {
     argv.name ? argv.name : 'noname',
     argv.comment ? argv.comment : '',
     argv.timestamp,
-    argv.es6
+    es6
   );
 
   console.log(
@@ -136,5 +137,4 @@ methods.make = (argv) => {
       }
     );
   } else process.exit(0);
-};
-module.exports = methods;
+}

@@ -25,7 +25,7 @@ To preview new migration, without any changes, you can run:
 
 `sequelize-mig make --preview`
 
-`make` tool creates `_current.json` file in `migrations` dir, that is used to calculate difference to the next migration. Do not remove it!
+`make` tool creates `_current.json` and `_current_bak.json` files in `migrations` dir, these are used to calculate difference to the next migration. Do not remove them!
 
 ## Notes
 * You will be able to make index and modules as es6 but keep migration files as es5 because sequelize-cli isn't compatible with it.
