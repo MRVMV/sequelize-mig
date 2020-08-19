@@ -1,6 +1,7 @@
 import yargs from 'yargs';
 import make from './migration/make.js';
 
+// eslint-disable-next-line no-unused-expressions
 yargs
   .usage('Usage: sequelize-mig <command> [options]')
   .command(
@@ -51,7 +52,7 @@ yargs
   .version('v')
   .alias('v', 'version')
   .demandCommand(1, 'Please specify a command')
-  .recommendCommands();
+  .recommendCommands().argv;
 
 // TODO:
 

@@ -1,5 +1,5 @@
-
-
+/* eslint-disable import/no-dynamic-require */
+import { createRequire } from 'module';
 
 import prettier from 'prettier';
 
@@ -10,25 +10,23 @@ import _ from 'lodash';
 import migrate from '../../lib/migrate.js';
 import pathConfig from '../../lib/pathConfig.js';
 
+const require = createRequire(import.meta.url);
+
 const make = async (argv) => {
   // Windows support
   if (!process.env.PWD) {
     process.env.PWD = process.cwd();
   }
 
-  const { migrationsDir, modelsDir, packageDir } = pathConfig(argv);
+  const { migrationsDir, modelsDir, packageDir } = await pathConfig(argv);
 
   if (!fs.existsSync(modelsDir)) {
-    console.log(
-      "Can't find models directory. Use `sequelize init` to create it"
-    );
+    console.log("Can't find models directory. Use `sequelize init` to create it");
     return;
   }
 
   if (!fs.existsSync(migrationsDir)) {
-    console.log(
-      "Can't find migrations directory. Use `sequelize init` to create it"
-    );
+    console.log("Can't find migrations directory. Use `sequelize init` to create it");
     return;
   }
 
@@ -45,26 +43,20 @@ const make = async (argv) => {
   };
 
   try {
-    previousState = JSON.parse(
-      fs.readFileSync(path.join(migrationsDir, '_current.json'))
-    );
-  } catch (e) { /** Error */}
+    previousState = JSON.parse(fs.readFileSync(path.join(migrationsDir, '_current.json')));
+  } catch (e) {
+    /** Error */
+  }
 
   // console.log(path.join(migrationsDir, '_current.json'), JSON.parse(fs.readFileSync(path.join(migrationsDir, '_current.json') )))
-  const {sequelize} = await import(modelsDir);
+  const { sequelize } = (await import(`file:///${modelsDir}/index.js`)).default;
 
-  const {models} = sequelize;
+  const { models } = sequelize;
 
   currentState.tables = migrate.reverseModels(sequelize, models);
 
-  const upActions = migrate.parseDifference(
-    previousState.tables,
-    currentState.tables
-  );
-  const downActions = migrate.parseDifference(
-    currentState.tables,
-    previousState.tables
-  );
+  const upActions = migrate.parseDifference(previousState.tables, currentState.tables);
+  const downActions = migrate.parseDifference(currentState.tables, previousState.tables);
 
   // sort actions
   migrate.sortActions(upActions);
@@ -79,15 +71,15 @@ const make = async (argv) => {
 
   // log migration actions
   _.each(migration.consoleOut, (v) => {
-    console.log(`[Actions] ${  v}`);
+    console.log(`[Actions] ${v}`);
   });
 
   if (argv.preview) {
     console.log('Migration result:');
     console.log(
-      prettier.format(`[ \n${  migration.commandsUp.join(', \n')  } \n];\n`, {
+      prettier.format(`[ \n${migration.commandsUp.join(', \n')} \n];\n`, {
         parser: 'babel',
-      })
+      }),
     );
     process.exit(0);
   }
@@ -96,17 +88,17 @@ const make = async (argv) => {
   if (fs.existsSync(path.join(migrationsDir, '_current.json')))
     fs.writeFileSync(
       path.join(migrationsDir, '_current_bak.json'),
-      fs.readFileSync(path.join(migrationsDir, '_current.json'))
+      fs.readFileSync(path.join(migrationsDir, '_current.json')),
     );
 
   // save current state
   currentState.revision = previousState.revision + 1;
   fs.writeFileSync(
     path.join(migrationsDir, '_current.json'),
-    JSON.stringify(currentState, null, 4)
+    JSON.stringify(currentState, null, 4),
   );
 
-  const { type } = await import (packageDir);
+  const { type } = require(packageDir);
 
   const es6 = argv.es6 == null ? type === 'module' : argv.es6;
 
@@ -118,11 +110,11 @@ const make = async (argv) => {
     argv.name ? argv.name : 'noname',
     argv.comment ? argv.comment : '',
     argv.timestamp,
-    es6
+    es6,
   );
 
   console.log(
-    `New migration to revision ${currentState.revision} has been saved to file '${info.filename}'`
+    `New migration to revision ${currentState.revision} has been saved to file '${info.filename}'`,
   );
 
   if (argv.execute) {
@@ -136,9 +128,9 @@ const make = async (argv) => {
         if (!err) console.log('Migration has been executed successfully');
         else console.log('Errors, during migration execution', err);
         process.exit(0);
-      }
+      },
     );
   } else process.exit(0);
-}
+};
 
 export default make;
