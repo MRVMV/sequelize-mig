@@ -8,7 +8,7 @@ import path from 'path';
 import _ from 'lodash';
 
 import migrate from '../../lib/migrate.js';
-import pathConfig from '../../lib/pathConfig.js';
+import { pathConfig } from '../../lib/functions.js';
 
 const require = createRequire(import.meta.url);
 

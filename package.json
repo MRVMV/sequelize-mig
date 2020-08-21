@@ -9,9 +9,7 @@
     "node": ">=14.0.0"
   },
   "bin": {
-    "sequelize-mig": "./bin/sequelize-mig.js",
-    "runMigration": "./bin/old/runMigration.cjs",
-    "makeMigration": "./bin/old/makeMigration.cjs"
+    "sequelize-mig": "./bin/sequelize-mig.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
