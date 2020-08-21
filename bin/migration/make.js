@@ -100,7 +100,7 @@ const make = async (argv) => {
 
   const { type } = require(packageDir);
 
-  const es6 = argv.es6 == null ? type === 'module' : argv.es6;
+  const es6 = argv.es6 !== null ? argv.es6 : type === 'module';
 
   // write migration to file
   const info = migrate.writeMigration(
