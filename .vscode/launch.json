@@ -12,7 +12,9 @@
         "--migrations-path",
         "./example/migrations",
         "--models-path",
-        "./example/models"
+        "./example/models",
+        "es6",
+        "false"
       ],
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/bin/runmigration.js"
@@ -28,7 +30,9 @@
         "--models-path",
         "./example/models",
         "--package-path",
-        "./example/package.json"
+        "./example/package.json",
+        "es6",
+        "false"
       ],
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/bin/sequelize-mig.js"
