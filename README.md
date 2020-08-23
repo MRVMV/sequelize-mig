@@ -12,7 +12,9 @@ This package provide two tools:
 
 ## Install
 (Globally - Recommended) `npm install sequelize-mig -g` / `yarn global add sequelize-mig`
+
 Or
+
 (devDependencies) `npm install sequelize-mig -D` / `yarn add sequelize-mig -D`
 
 ## Usage
@@ -29,9 +31,13 @@ To preview new migration, without any changes, you can run:
 
 ## Limitations
 The migration:make tool supports auto detecting these actions
+
     'dropTable','removeColumn','removeIndex',
+
     'createTable','addColumn','addIndex',
+
     'changeColumn'
+    
 and Im trying to find a way to know old column name to implement renameColumn because it's now translated to removeColumn then addColumn
 
 ## Notes
