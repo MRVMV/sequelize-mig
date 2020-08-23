@@ -12,8 +12,12 @@ yargs
         .positional('name', {
           describe: 'Set migration name (default: "noname")',
           type: 'string',
-          demandOption: true,
           alias: 'n',
+        })
+        .positional('preview', {
+          describe: 'Set migration name (default: "noname")',
+          type: 'boolean',
+          alias: 'p',
         })
         .positional('timestamp', {
           describe: 'Add timestamp to migration name (default: true)',

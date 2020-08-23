@@ -38,29 +38,28 @@ const make = async (argv) => {
 
   currentState.exists = fs.existsSync(currentState.path);
 
-  if (currentState.exists) {
-    currentState.content = fs.readFileSync(currentState.path);
-  } else {
-    console.log('_current.json not found. first time running this tool');
-  }
-
   // load last state
   let previousState = {
     revision: 0,
     tables: {},
   };
 
-  try {
-    previousState = JSON.parse(currentState.content);
-  } catch (e) {
-    console.log('_current.json syntax not valid');
+  if (currentState.exists) {
+    currentState.content = fs.readFileSync(currentState.path);
+    try {
+      previousState = JSON.parse(currentState.content);
+    } catch (e) {
+      console.log('_current.json syntax not valid');
+    }
+  } else {
+    console.log('_current.json not found. first time running this tool');
   }
 
   // console.log(currentState.path, JSON.parse(currentState.content))
-  const db = (await import(`file:///${indexDir}`)).default;
-  const { models } = db;
+  const { sequelize } = (await import(`file:\\${indexDir}`)).default;
+  const { models } = sequelize;
 
-  currentState.tables = migrate.reverseModels(db, models);
+  currentState.tables = migrate.reverseModels(sequelize, models);
 
   const upActions = migrate.parseDifference(previousState.tables, currentState.tables);
   const downActions = migrate.parseDifference(currentState.tables, previousState.tables);
@@ -90,8 +89,7 @@ const make = async (argv) => {
   }
 
   // backup _current file
-  if (currentState.exists)
-    fs.writeFileSync(currentState.backupPath, currentState.content);
+  if (currentState.exists) fs.writeFileSync(currentState.backupPath, currentState.content);
 
   // save current state
   currentState.revision = previousState.revision + 1;
