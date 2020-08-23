@@ -1,4 +1,3 @@
-/* eslint-disable import/no-dynamic-require */
 import { createRequire } from 'module';
 
 import prettier from 'prettier';
@@ -18,7 +17,7 @@ const make = async (argv) => {
     process.env.PWD = process.cwd();
   }
 
-  const { migrationsDir, modelsDir, packageDir } = await pathConfig(argv);
+  const { modelsDir, migrationsDir, indexDir, packageDir } = await pathConfig(argv);
 
   if (!fs.existsSync(modelsDir)) {
     console.log("Can't find models directory. Use `sequelize init` to create it");
@@ -33,27 +32,35 @@ const make = async (argv) => {
   // current state
   const currentState = {
     tables: {},
+    path: path.join(migrationsDir, '_current.json'),
+    backupPath: path.join(migrationsDir, '_current_bak.json'),
   };
+
+  currentState.exists = fs.existsSync(currentState.path);
+
+  if (currentState.exists) {
+    currentState.content = fs.readFileSync(currentState.path);
+  } else {
+    console.log('_current.json not found. first time running this tool');
+  }
 
   // load last state
   let previousState = {
     revision: 0,
-    version: 1,
     tables: {},
   };
 
   try {
-    previousState = JSON.parse(fs.readFileSync(path.join(migrationsDir, '_current.json')));
+    previousState = JSON.parse(currentState.content);
   } catch (e) {
-    /** Error */
+    console.log('_current.json syntax not valid');
   }
 
-  // console.log(path.join(migrationsDir, '_current.json'), JSON.parse(fs.readFileSync(path.join(migrationsDir, '_current.json') )))
-  const { sequelize } = (await import(`file:///${modelsDir}/index.js`)).default;
+  // console.log(currentState.path, JSON.parse(currentState.content))
+  const db = (await import(`file:///${indexDir}`)).default;
+  const { models } = db;
 
-  const { models } = sequelize;
-
-  currentState.tables = migrate.reverseModels(sequelize, models);
+  currentState.tables = migrate.reverseModels(db, models);
 
   const upActions = migrate.parseDifference(previousState.tables, currentState.tables);
   const downActions = migrate.parseDifference(currentState.tables, previousState.tables);
@@ -66,13 +73,11 @@ const make = async (argv) => {
 
   if (migration.commandsUp.length === 0) {
     console.log('No changes found');
-    process.exit(0);
+    return;
   }
 
   // log migration actions
-  _.each(migration.consoleOut, (v) => {
-    console.log(`[Actions] ${v}`);
-  });
+  _.each(migration.consoleOut, (action, index) => console.log(`[Action #${index}] ${action}`));
 
   if (argv.preview) {
     console.log('Migration result:');
@@ -81,26 +86,19 @@ const make = async (argv) => {
         parser: 'babel',
       }),
     );
-    process.exit(0);
+    return;
   }
 
   // backup _current file
-  if (fs.existsSync(path.join(migrationsDir, '_current.json')))
-    fs.writeFileSync(
-      path.join(migrationsDir, '_current_bak.json'),
-      fs.readFileSync(path.join(migrationsDir, '_current.json')),
-    );
+  if (currentState.exists)
+    fs.writeFileSync(currentState.backupPath, currentState.content);
 
   // save current state
   currentState.revision = previousState.revision + 1;
-  fs.writeFileSync(
-    path.join(migrationsDir, '_current.json'),
-    JSON.stringify(currentState, null, 4),
-  );
+  fs.writeFileSync(currentState.path, JSON.stringify(currentState, null, 4));
 
+  // eslint-disable-next-line import/no-dynamic-require
   const { type } = require(packageDir);
-
-  const es6 = argv.es6 !== null ? argv.es6 : type === 'module';
 
   // write migration to file
   const info = migrate.writeMigration(
@@ -110,27 +108,12 @@ const make = async (argv) => {
     argv.name ? argv.name : 'noname',
     argv.comment ? argv.comment : '',
     argv.timestamp,
-    es6,
+    argv.es6 !== null ? argv.es6 : type === 'module',
   );
 
   console.log(
-    `New migration to revision ${currentState.revision} has been saved to file '${info.filename}'`,
+    `New migration to revision ${currentState.revision} has been saved to file\n'${info.filename}'`,
   );
-
-  if (argv.execute) {
-    migrate.executeMigration(
-      sequelize.getQueryInterface(),
-      info.filename,
-      true,
-      0,
-      false,
-      (err) => {
-        if (!err) console.log('Migration has been executed successfully');
-        else console.log('Errors, during migration execution', err);
-        process.exit(0);
-      },
-    );
-  } else process.exit(0);
 };
 
 export default make;

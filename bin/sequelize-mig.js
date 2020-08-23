@@ -29,11 +29,6 @@ yargs
           type: 'string',
           alias: 'c',
         })
-        .positional('package-path', {
-          describe: 'The path to the package file',
-          type: 'string',
-          alias: 'pkgp',
-        })
         .positional('models-path', {
           describe: 'The path to the models folder',
           type: 'string',
@@ -43,6 +38,15 @@ yargs
           describe: 'The path to the migrations folder',
           type: 'string',
           alias: 'migp',
+        })
+        .positional('index-file-path', {
+          describe: 'The path to the index file (default to models-path/index.js)',
+          type: 'string',
+        })
+        .positional('package-path', {
+          describe: 'The path to the package file',
+          type: 'string',
+          alias: 'pkgp',
         })
         .example('sequelize-mig migration:make --name InitDb').argv,
     (argv) => make(argv),
