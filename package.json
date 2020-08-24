@@ -1,10 +1,11 @@
 {
   "name": "sequelize-mig",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "type": "module",
   "description": "Sequelize migration generator and es6 init tool",
   "main": "index.js",
   "private": false,
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "engines": {
     "node": ">=14.0.0"
   },
