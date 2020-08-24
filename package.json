@@ -5,7 +5,6 @@
   "description": "Sequelize migration generator and es6 init tool",
   "main": "index.js",
   "private": false,
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "engines": {
     "node": ">=14.0.0"
   },
