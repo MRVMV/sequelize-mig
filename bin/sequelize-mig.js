@@ -3,9 +3,9 @@
 import yargs from 'yargs';
 import make from './migration/make.js';
 
-// eslint-disable-next-line no-unused-expressions
 yargs
-  .usage('Usage: sequelize-mig <command> [options]')
+  .scriptName('sequelize-mig')
+  .usage('Usage: $0 <command> [options]')
   .command(
     ['migration:make', 'migration:add'],
     'Make a new migration file by your own updates to models',
@@ -17,7 +17,7 @@ yargs
           alias: 'n',
         })
         .positional('preview', {
-          describe: 'Set migration name (default: "noname")',
+          describe: 'Preview migration actions without writing migration file',
           type: 'boolean',
           alias: 'p',
         })
@@ -57,12 +57,11 @@ yargs
         .example('sequelize-mig migration:make --name InitDb').argv,
     (argv) => make(argv),
   )
-  .help('h')
-  .alias('h', 'help')
-  .version('v')
-  .alias('v', 'version')
+  .alias('help', 'h')
+  .alias('version', 'v')
   .demandCommand(1, 'Please specify a command')
-  .recommendCommands().argv;
+  .recommendCommands()
+  .parse();
 
 // TODO:
 
