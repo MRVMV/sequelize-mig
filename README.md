@@ -3,7 +3,7 @@ Sequelize migration generator (and es6 init tool)
 
 ###### THIS TOOL IS UNDER DEVELOPMENT AND NOT INTENDED TO PRODUCTION USE RIGHT NOW!!!! ######
 
-The tool is built using es6 (not fully migrated until now)
+The tool is built using es6
 And its not intended to replace sequelize-cli its just completing it
 
 This package provide two tools:

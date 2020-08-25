@@ -1,2 +1,1 @@
-
-module.exports = require("./lib/migrate");
+export { default } from './lib/migrate.js';
