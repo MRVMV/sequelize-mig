@@ -1,7 +1,8 @@
 # Sequelize migration generator (and es6 init tool) - [sequelize-mig](https://npmjs.com/package/sequelize-mig)
 [![npm](https://img.shields.io/npm/v/sequelize-mig.svg?style=flat-square)](https://npmjs.com/package/sequelize-mig)
 [![node](https://img.shields.io/node/v/sequelize-mig.svg?style=flat-square)](https://www.npmjs.com/package/sequelize-mig)
-
+[![Build Status](https://img.shields.io/travis/mrvmv/sequelize-mig.svg?style=flat-square)](https://travis-ci.org/telegraf/telegraf)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 ###### THIS TOOL IS UNDER DEVELOPMENT AND NOT INTENDED TO PRODUCTION USE RIGHT NOW!!!! ######
 
 The tool is built using es6
@@ -26,11 +27,12 @@ Or
 * Init sequelize, with sequelize-cli, using `sequelize init` (or using es6 init by sequelize-mig -Planned-)
 * Create your models manually or using sequelize-cli (or using es6 init by sequelize-mig -Planned-)
 * Create initial migration:
-`sequelize-mig migration:make -n <migration name>`
 
-To preview new migration, without any changes, you can run:
+    `sequelize-mig migration:make -n <migration name>`
 
-`sequelize-mig migration:make --preview`
+* To preview new migration, without any changes, you can run:
+
+    `sequelize-mig migration:make --preview`
 
 * Finally run migration using sequelize-cli `sequelize db:migrate`
 
