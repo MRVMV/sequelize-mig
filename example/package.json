@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "db:makeMigration": "node ../bin/makeMigration.js --migrations-path './example/migrations' --models-path './example/models'",
-    "db:runMigration": "node ../bin/runMigration.js --migrations-path './example/migrations' --models-path './example/models'"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "MRVMV",
   "license": "MIT",

@@ -110,6 +110,6 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "prettier-eslint": "^11.0.0",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.2"
   }
 }
