@@ -1,7 +1,7 @@
 # Sequelize migration generator (and es6 init tool) - [sequelize-mig](https://npmjs.com/package/sequelize-mig)
 [![npm](https://img.shields.io/npm/v/sequelize-mig.svg?style=flat-square)](https://npmjs.com/package/sequelize-mig)
 [![node](https://img.shields.io/node/v/sequelize-mig.svg?style=flat-square)](https://www.npmjs.com/package/sequelize-mig)
-[![Build Status](https://img.shields.io/travis/mrvmv/sequelize-mig.svg?style=flat-square)](https://travis-ci.org/telegraf/telegraf)
+[![Build Status](https://img.shields.io/travis/mrvmv/sequelize-mig.svg?branch=develop&style=flat-square)](https://travis-ci.org/mrvmv/sequelize-mig)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 ###### THIS TOOL IS UNDER DEVELOPMENT AND NOT INTENDED TO PRODUCTION USE RIGHT NOW!!!! ######
 

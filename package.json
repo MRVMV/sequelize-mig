@@ -12,7 +12,7 @@
     "sequelize-mig": "./bin/sequelize-mig.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "sequelize-mig": "node ./bin/sequelize-mig.js"
   },
   "repository": {
