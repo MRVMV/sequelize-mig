@@ -1,9 +1,11 @@
 # Sequelize migration generator (and es6 init tool) - [sequelize-mig](https://npmjs.com/package/sequelize-mig)
+
 [![npm](https://img.shields.io/npm/v/sequelize-mig.svg?style=flat-square)](https://npmjs.com/package/sequelize-mig)
 [![node](https://img.shields.io/node/v/sequelize-mig.svg?style=flat-square)](https://www.npmjs.com/package/sequelize-mig)
 [![Build Status](https://img.shields.io/travis/mrvmv/sequelize-mig.svg?branch=develop&style=flat-square)](https://travis-ci.org/mrvmv/sequelize-mig)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
-###### THIS TOOL IS UNDER DEVELOPMENT AND NOT INTENDED TO PRODUCTION USE RIGHT NOW!!!! ######
+
+###### Warning: THIS TOOL IS UNDER DEVELOPMENT AND NOT INTENDED TO PRODUCTION USE RIGHT NOW!!!! ######
 
 The tool is built using es6
 And its not intended to replace sequelize-cli its just completing it
@@ -15,25 +17,29 @@ This tool provide these commands:
 * `init` - tool to init required files for sequelize using new es6 schema (Planned)
 
 ## Install
-(Globally - Recommended) `npm install sequelize-mig -g` / `yarn global add sequelize-mig`
-
+(Globally - Recommended)
+```
+npm install sequelize-mig -g / yarn global add sequelize-mig
+```
 Or
 
-(devDependencies) `npm install sequelize-mig -D` / `yarn add sequelize-mig -D`
-
+(devDependencies)
+```
+npm install sequelize-mig -D / yarn add sequelize-mig -D
+```
 ## Usage
 
 ### For New Users
 * Init sequelize, with sequelize-cli, using `sequelize init` (or using es6 init by sequelize-mig -Planned-)
 * Create your models manually or using sequelize-cli (or using es6 init by sequelize-mig -Planned-)
 * Create initial migration:
-
-    `sequelize-mig migration:make -n <migration name>`
-
+```
+sequelize-mig migration:make -n <migration name>
+```
 * To preview new migration, without any changes, you can run:
-
-    `sequelize-mig migration:make --preview`
-
+```
+sequelize-mig migration:make --preview
+```
 * Finally run migration using sequelize-cli `sequelize db:migrate`
 
 * You can use --help to view help of the tool or specific command
@@ -45,13 +51,11 @@ and you can continue using this tool normally (Planned)
 
 ## Limitations
 The migration:make tool supports auto detecting these actions
-
-    'dropTable','removeColumn','removeIndex',
-
-    'createTable','addColumn','addIndex',
-
-    'changeColumn'
-    
+```
+dropTable, removeColumn, removeIndex,
+createTable, addColumn, addIndex,
+changeColumn
+```
 and Im trying to find a way to know old column name to implement renameColumn because it's now translated to removeColumn then addColumn
 
 ## Explanation
@@ -61,11 +65,11 @@ then the tool cant actually know if you deleted, or migrated or whatever you edi
 ## Notes
 * You will be able to make index and modules as es6 but keep migration files as es5 because sequelize-cli isn't compatible with it yet.
 * `migration:make` tool creates `_current.json` and `_current_bak.json` files in `migrations` dir, these are used to calculate difference to the next migration. Do not remove them!
-* Tool create new migration with name '{revision}-{timestamp}-{name}.{js|cjs}' but you can change every single option with parameters
+* Tool create new migration with name `{revision}-{timestamp}-{name}.{js|cjs}` but you can change every single option with parameters
 
 ## TODO:
 * Allow init using es6 modules
-* Adding renameColumn in some way I didn't know until now
+* Adding `renameColumn` in some way I didn't know until now
 * `migration:sync` for old users
 * `migration:undo` to delete last migration
 ## Credits
