@@ -11,6 +11,6 @@ jobs:
       deploy:
         provider: script
         script:
-          - yarn global add semantic-release && yarn semantic-release
+          - yarn install --production=false && yarn semantic-release
         on:
           branch: main
