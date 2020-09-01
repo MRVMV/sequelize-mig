@@ -9,10 +9,9 @@ jobs:
       # Advanced: optionally overwrite your default `script` step to skip the tests
       # script: skip
       deploy:
-        before_script:
-          - yarn global add semantic-release
         provider: script
         script:
-          - yarn semantic-release
+            - yarn global add semantic-release
+            - yarn semantic-release
         on:
           branch: main
