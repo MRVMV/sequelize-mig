@@ -12,3 +12,5 @@ jobs:
         provider: script
         script:
           - yarn semantic-release
+        on:
+          branch: main
