@@ -8,20 +8,19 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "bin": {
-    "sequelize-mig": "./bin/sequelize-mig.js"
+  "preferGlobal": true,
+  "author": "MRVMV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrvmv/sequelize-mig/issues"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "sequelize-mig": "node ./bin/sequelize-mig.js",
-    "semantic-release": "semantic-release"
-  },
+  "homepage": "https://github.com/mrvmv/sequelize-mig",
   "repository": {
     "type": "git",
     "url": "https://github.com/mrvmv/sequelize-mig.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/",
+    "registry": "http://registry.npmjs.org/",
     "pkgRoot": "build"
   },
   "keywords": [
@@ -33,13 +32,14 @@
     "sql",
     "cli"
   ],
-  "preferGlobal": true,
-  "author": "MRVMV",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mrvmv/sequelize-mig/issues"
+  "bin": {
+    "sequelize-mig": "./bin/sequelize-mig.js"
   },
-  "homepage": "https://github.com/mrvmv/sequelize-mig#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "sequelize-mig": "node ./bin/sequelize-mig.js",
+    "semantic-release": "semantic-release"
+  },
   "prettier": {
     "semi": true,
     "trailingComma": "all",
