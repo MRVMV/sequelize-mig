@@ -72,9 +72,11 @@ then the tool cant actually know if you deleted, or migrated or whatever you edi
 
 ## TODO:
 * Allow init using es6 modules
-* Adding `renameColumn` in some way I didn't know until now
+* Adding `renameColumn` in some way I didn't know until now (maybe comments)
 * `migration:sync` for old users
 * `migration:undo` to delete last migration
+* auto add renameColumn conversion when edits are only to letters case or adding _
+
 ## Credits
 * Depending on Scimonster/sequelize-auto-migrations which is forked from flexxnn/sequelize-auto-migrations
 * The main projects are not maintained any more
