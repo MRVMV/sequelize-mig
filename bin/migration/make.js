@@ -13,9 +13,7 @@ const require = createRequire(import.meta.url);
 
 const make = async (argv) => {
   // Windows support
-  if (!process.env.PWD) {
-    process.env.PWD = process.cwd();
-  }
+  if (!process.env.PWD) process.env.PWD = process.cwd();
 
   const { modelsDir, migrationsDir, indexDir, packageDir } = await pathConfig(argv);
 
