@@ -105,7 +105,6 @@ const make = async (argv) => {
     migrationsDir,
     argv.name ? argv.name : 'noname',
     argv.comment ? argv.comment : '',
-    argv.timestamp,
     argv.es6 !== null ? argv.es6 : type === 'module',
   );
 

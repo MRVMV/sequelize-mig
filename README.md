@@ -21,13 +21,13 @@ This tool provide these commands:
 
 ## Install
 (Globally - Recommended)
-```
+```Bash
 npm install sequelize-mig -g / yarn global add sequelize-mig
 ```
 Or
 
 (devDependencies)
-```
+```Bash
 npm install sequelize-mig -D / yarn add sequelize-mig -D
 ```
 ## Usage
@@ -36,11 +36,11 @@ npm install sequelize-mig -D / yarn add sequelize-mig -D
 * Init sequelize, with sequelize-cli, using `sequelize init` (or using es6 init by sequelize-mig -Planned-)
 * Create your models manually or using sequelize-cli (or using es6 init by sequelize-mig -Planned-)
 * Create initial migration:
-```
+```Bash
 sequelize-mig migration:make -n <migration name>
 ```
 * To preview new migration, without any changes, you can run:
-```
+```Bash
 sequelize-mig migration:make --preview
 ```
 * Finally run migration using sequelize-cli `sequelize db:migrate`
@@ -68,7 +68,7 @@ then the tool cant actually know if you deleted, or migrated or whatever you edi
 ## Notes
 * You will be able to make index and modules as es6 but keep migration files as es5 because sequelize-cli isn't compatible with it yet.
 * `migration:make` tool creates `_current.json` and `_current_bak.json` files in `migrations` dir, these are used to calculate difference to the next migration. Do not remove them!
-* Tool create new migration with name `{revision}-{timestamp}-{name}.{js|cjs}` but you can change every single option with parameters
+* Tool create new migration with name `{timestamp}_{name}.{js|cjs}` but you can change every single option with parameters
 
 ## TODO:
 * Allow init using es6 modules

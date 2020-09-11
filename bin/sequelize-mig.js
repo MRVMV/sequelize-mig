@@ -21,11 +21,6 @@ yargs
           type: 'boolean',
           alias: 'p',
         })
-        .positional('timestamp', {
-          describe: 'Add timestamp to migration name (default: true)',
-          type: 'boolean',
-          alias: 't',
-        })
         .positional('es6', {
           describe: 'Force .cjs file extension',
           type: 'boolean',
