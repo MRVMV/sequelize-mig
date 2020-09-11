@@ -4,7 +4,7 @@ import prettier from 'prettier';
 
 import fs from 'fs';
 import path from 'path';
-import _ from 'lodash';
+import { each } from 'lodash';
 
 import migrate from '../../lib/migrate.js';
 import { pathConfig } from '../../lib/functions.js';
@@ -74,7 +74,7 @@ const make = async (argv) => {
   }
 
   // log migration actions
-  _.each(migration.consoleOut, (action, index) => console.log(`[Action #${index}] ${action}`));
+  each(migration.consoleOut, (action, index) => console.log(`[Action #${index}] ${action}`));
 
   if (argv.preview) {
     console.log('Migration result:');
