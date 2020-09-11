@@ -29,6 +29,7 @@ yargs
         .positional('es6', {
           describe: 'Force .cjs file extension',
           type: 'boolean',
+          alias: 'cjs',
         })
         .positional('comment', {
           describe: 'Set migration comment',
@@ -45,14 +46,20 @@ yargs
           type: 'string',
           alias: 'migp',
         })
-        .positional('index-file-path', {
-          describe: 'The path to the index file (default to models-path/index.js)',
+        .positional('schemas-path', {
+          describe: 'The path to the schemas folder (default to migrations-path)',
           type: 'string',
+          alias: 'schmp',
         })
         .positional('package-path', {
           describe: 'The path to the package file',
           type: 'string',
           alias: 'pkgp',
+        })
+        .positional('index-file-path', {
+          describe: 'The path to the index file (default to models-path/index.js)',
+          type: 'string',
+          alias: 'indxp'
         })
         .example('sequelize-mig migration:make --name InitDb').argv,
     (argv) => make(argv),

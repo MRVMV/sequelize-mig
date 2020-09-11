@@ -12,10 +12,7 @@ import { pathConfig } from '../../lib/functions.js';
 const require = createRequire(import.meta.url);
 
 const make = async (argv) => {
-  // Windows support
-  if (!process.env.PWD) process.env.PWD = process.cwd();
-
-  const { modelsDir, migrationsDir, indexDir, packageDir } = await pathConfig(argv);
+  const { modelsDir, migrationsDir, schemasDir, indexDir, packageDir } = await pathConfig(argv);
 
   if (!fs.existsSync(modelsDir)) {
     console.log("Can't find models directory. Use `sequelize init` to create it");
@@ -27,11 +24,16 @@ const make = async (argv) => {
     return;
   }
 
+  if (!fs.existsSync(schemasDir)) {
+    console.log("Can't find Schemas directory. please correct it or let it as default");
+    return;
+  }
+
   // current state
   const currentState = {
     tables: {},
-    path: path.join(migrationsDir, '_current.json'),
-    backupPath: path.join(migrationsDir, '_current_bak.json'),
+    path: path.join(schemasDir, '_current.json'),
+    backupPath: path.join(schemasDir, '_current_bak.json'),
   };
 
   currentState.exists = fs.existsSync(currentState.path);
