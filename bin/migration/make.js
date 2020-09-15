@@ -4,10 +4,12 @@ import prettier from 'prettier';
 
 import fs from 'fs';
 import path from 'path';
-import { each } from 'lodash';
+import lodash from 'lodash';
 
 import migrate from '../../lib/migrate.js';
 import { pathConfig } from '../../lib/functions.js';
+
+const { each } = lodash;
 
 const require = createRequire(import.meta.url);
 

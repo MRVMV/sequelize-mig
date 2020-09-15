@@ -130,7 +130,7 @@
     "object-hash": "^2.0.3",
     "prettier": "^2.0.5",
     "sequelize": "^6.3.5",
-    "yargs": "^15.4.1"
+    "yargs": "^16.0.3"
   },
   "devDependencies": {
     "@babel/parser": "^7.11.5",
@@ -138,10 +138,10 @@
     "@semantic-release/git": "^9.0.0",
     "@types/sequelize": "^4.28.9",
     "@types/yargs": "^15.0.5",
-    "@typescript-eslint/eslint-plugin": "^4.0.1",
-    "@typescript-eslint/parser": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.8.0",
+    "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",

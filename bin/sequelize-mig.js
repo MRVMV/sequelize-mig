@@ -31,32 +31,37 @@ yargs
           type: 'string',
           alias: 'c',
         })
-        .positional('models-path', {
-          describe: 'The path to the models folder',
+        .positional('pwd-path', {
+          describe: 'Override PWD (or just navigate to specified folder in it) (default to ./)',
           type: 'string',
-          alias: 'modp',
+          alias: 'pwdp',
+        })
+        .positional('sequelizerc-path', {
+          describe: 'The path to the .sequelizerc file (default to ./.sequelizerc)',
+          type: 'string',
+          alias: 'seqrcp',
         })
         .positional('migrations-path', {
-          describe: 'The path to the migrations folder',
+          describe: 'The path to the migrations folder (default to ./migrations)',
           type: 'string',
           alias: 'migp',
+        })
+        .positional('models-path', {
+          describe: 'The path to the models folder (default to ./models)',
+          type: 'string',
+          alias: 'modp',
         })
         .positional('schemas-path', {
           describe: 'The path to the schemas folder (default to migrations-path)',
           type: 'string',
           alias: 'schmp',
         })
-        .positional('package-path', {
-          describe: 'The path to the package file',
-          type: 'string',
-          alias: 'pkgp',
-        })
         .positional('index-file-path', {
           describe: 'The path to the index file (default to models-path/index.js)',
           type: 'string',
-          alias: 'indxp'
+          alias: 'indxp',
         })
-        .example('sequelize-mig migration:make --name InitDb').argv,
+        .example('sequelize-mig migration:make --name InitDb -p').argv,
     (argv) => make(argv),
   )
   .alias('help', 'h')
