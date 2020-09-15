@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+
 import make from './migration/make.js';
 
-yargs
+yargs(hideBin(process.argv))
   .scriptName('sequelize-mig')
   .usage('Usage: $0 <command> [options]')
   .command(
