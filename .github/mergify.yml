@@ -1,7 +1,24 @@
 pull_request_rules:
-  - name: Automatic merge on approval
+  - name: Automatic merge on Travis success if author
     conditions:
-      - "#approved-reviews-by>=1"
+      - author=@MRVMV
+      - status-success=Travis CI - Pull Request
+      - -label~=.*\bwip\b.*
     actions:
       merge:
         method: merge
+  - name: automatic merge for Dependabot pull requests
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - status-success=Travis CI - Pull Request
+    actions:
+      merge:
+        method: merge
+  - name: say hi on new contribution
+    conditions:
+      - author!=@MRVMV
+    actions:
+        comment:
+          message: |
+              Welcome to our great project!
+              We're delight to have you onboard <3
