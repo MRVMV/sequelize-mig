@@ -4,20 +4,17 @@ import prettier from 'prettier';
 
 import fs from 'fs';
 import path from 'path';
-import _ from 'lodash';
+import lodash from 'lodash';
 
 import migrate from '../../lib/migrate.js';
 import { pathConfig } from '../../lib/functions.js';
 
+const { each } = lodash;
+
 const require = createRequire(import.meta.url);
 
 const make = async (argv) => {
-  // Windows support
-  if (!process.env.PWD) {
-    process.env.PWD = process.cwd();
-  }
-
-  const { modelsDir, migrationsDir, indexDir, packageDir } = await pathConfig(argv);
+  const { modelsDir, migrationsDir, stateDir, indexDir, packageDir } = await pathConfig(argv);
 
   if (!fs.existsSync(modelsDir)) {
     console.log("Can't find models directory. Use `sequelize init` to create it");
@@ -29,11 +26,16 @@ const make = async (argv) => {
     return;
   }
 
+  if (!fs.existsSync(stateDir)) {
+    console.log("Can't find State directory. please correct it or let it as default");
+    return;
+  }
+
   // current state
   const currentState = {
     tables: {},
-    path: path.join(migrationsDir, '_current.json'),
-    backupPath: path.join(migrationsDir, '_current_bak.json'),
+    path: path.join(stateDir, '_current.json'),
+    backupPath: path.join(stateDir, '_current_bak.json'),
   };
 
   currentState.exists = fs.existsSync(currentState.path);
@@ -76,7 +78,7 @@ const make = async (argv) => {
   }
 
   // log migration actions
-  _.each(migration.consoleOut, (action, index) => console.log(`[Action #${index}] ${action}`));
+  each(migration.consoleOut, (action, index) => console.log(`[Action #${index}] ${action}`));
 
   if (argv.preview) {
     console.log('Migration result:');
@@ -105,7 +107,6 @@ const make = async (argv) => {
     migrationsDir,
     argv.name ? argv.name : 'noname',
     argv.comment ? argv.comment : '',
-    argv.timestamp,
     argv.es6 !== null ? argv.es6 : type === 'module',
   );
 

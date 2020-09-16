@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+
 import make from './migration/make.js';
 
-yargs
+yargs(hideBin(process.argv))
   .scriptName('sequelize-mig')
   .usage('Usage: $0 <command> [options]')
   .command(
@@ -21,40 +23,47 @@ yargs
           type: 'boolean',
           alias: 'p',
         })
-        .positional('timestamp', {
-          describe: 'Add timestamp to migration name (default: true)',
-          type: 'boolean',
-          alias: 't',
-        })
         .positional('es6', {
           describe: 'Force .cjs file extension',
           type: 'boolean',
+          alias: 'cjs',
         })
         .positional('comment', {
           describe: 'Set migration comment',
           type: 'string',
           alias: 'c',
         })
+        .positional('pwd-path', {
+          describe: 'Override PWD (or just navigate to specified folder in it) (default to ./)',
+          type: 'string',
+          alias: 'pwdp',
+        })
+        .positional('sequelizerc-path', {
+          describe: 'The path to the .sequelizerc file (default to ./.sequelizerc)',
+          type: 'string',
+          alias: 'seqrcp',
+        })
+        .positional('migrations-path', {
+          describe: 'The path to the migrations folder (default to ./migrations)',
+          type: 'string',
+          alias: 'migp',
+        })
         .positional('models-path', {
-          describe: 'The path to the models folder',
+          describe: 'The path to the models folder (default to ./models)',
           type: 'string',
           alias: 'modp',
         })
-        .positional('migrations-path', {
-          describe: 'The path to the migrations folder',
+        .positional('state-path', {
+          describe: 'The path to the state folder where schema is saved (default to migrations-path)',
           type: 'string',
-          alias: 'migp',
+          alias: 'statp',
         })
         .positional('index-file-path', {
           describe: 'The path to the index file (default to models-path/index.js)',
           type: 'string',
+          alias: 'indxp',
         })
-        .positional('package-path', {
-          describe: 'The path to the package file',
-          type: 'string',
-          alias: 'pkgp',
-        })
-        .example('sequelize-mig migration:make --name InitDb').argv,
+        .example('sequelize-mig migration:make -n InitDb -p').argv,
     (argv) => make(argv),
   )
   .alias('help', 'h')
