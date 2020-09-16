@@ -63,7 +63,7 @@ yargs(hideBin(process.argv))
           type: 'string',
           alias: 'indxp',
         })
-        .example('sequelize-mig migration:make --name InitDb -p').argv,
+        .example('sequelize-mig migration:make -n InitDb -p').argv,
     (argv) => make(argv),
   )
   .alias('help', 'h')
