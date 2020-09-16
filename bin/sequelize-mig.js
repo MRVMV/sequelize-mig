@@ -53,10 +53,10 @@ yargs(hideBin(process.argv))
           type: 'string',
           alias: 'modp',
         })
-        .positional('schemas-path', {
-          describe: 'The path to the schemas folder (default to migrations-path)',
+        .positional('state-path', {
+          describe: 'The path to the state folder where schema is saved (default to migrations-path)',
           type: 'string',
-          alias: 'schmp',
+          alias: 'statp',
         })
         .positional('index-file-path', {
           describe: 'The path to the index file (default to models-path/index.js)',
