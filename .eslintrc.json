@@ -20,6 +20,9 @@
     "prettier",
     "prettier/@typescript-eslint"
   ],
+  "ignorePatterns": [
+    "lib/assets/*/*.js"
+  ],
   "rules": {
     "import/extensions": "off",
     "radix": ["error", "as-needed"],

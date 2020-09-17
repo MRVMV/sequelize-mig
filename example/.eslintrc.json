@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "env": {
+    "commonjs": true,
+    "node": true
+  },
+  "parser": "esprima",
+  "parserOptions": {
+    "sourceType": "script"
+  },
+  "extends": ["airbnb-base", "eslint:recommended", "prettier"],
+  "rules": {
+    "import/extensions": "off",
+    "radix": ["error", "as-needed"],
+    "no-console": "off",
+    "indent": "off",
+    "no-plusplus": "off",
+    "no-param-reassign": "off",
+    "import/no-dynamic-require": "off",
+    "global-require": "off"
+  }
+}
