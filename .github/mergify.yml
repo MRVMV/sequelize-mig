@@ -9,7 +9,7 @@ pull_request_rules:
         method: merge
   - name: say hi on new contribution
     conditions:
-      - -author~=^(@mrvmv|depfu|dependabot(|-preview)\[bot\])$
+      - -author~=^(mrvmv|depfu|dependabot(|-preview)\[bot\])$
     actions:
         comment:
           message: |
