@@ -38,6 +38,11 @@ yargs(hideBin(process.argv))
           type: 'string',
           alias: 'pwdp',
         })
+        .positional('ignore-sequelizerc', {
+          describe: 'force pwd even on sequelizerc (default to false)',
+          type: 'boolean',
+          alias: 'ignrc',
+        })
         .positional('sequelizerc-path', {
           describe: 'The path to the .sequelizerc file (default to ./.sequelizerc)',
           type: 'string',
@@ -54,7 +59,8 @@ yargs(hideBin(process.argv))
           alias: 'modp',
         })
         .positional('state-path', {
-          describe: 'The path to the state folder where schema is saved (default to migrations-path)',
+          describe:
+            'The path to the state folder where schema is saved (default to migrations-path)',
           type: 'string',
           alias: 'statp',
         })

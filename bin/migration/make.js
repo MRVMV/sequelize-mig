@@ -6,8 +6,14 @@ import fs from 'fs';
 import path from 'path';
 import lodash from 'lodash';
 
-import migrate from '../../lib/migrate.js';
 import { pathConfig } from '../../lib/functions.js';
+import {
+  sortActions,
+  parseDifference,
+  reverseModels,
+  getMigration,
+  writeMigration,
+} from '../../lib/migration.js';
 
 const { each } = lodash;
 
@@ -27,8 +33,8 @@ const make = async (argv) => {
   }
 
   if (!fs.existsSync(stateDir)) {
-    console.log("Can't find State directory. please correct it or let it as default");
-    return;
+    console.log("Can't find State directory. I will make it manually");
+    fs.mkdirSync(stateDir, { recursive: true });
   }
 
   // current state
@@ -57,20 +63,19 @@ const make = async (argv) => {
     console.log('_current.json not found. first time running this tool');
   }
 
-  // console.log(currentState.path, JSON.parse(currentState.content))
   const { sequelize } = (await import(`file:\\${indexDir}`)).default;
   const { models } = sequelize;
 
-  currentState.tables = migrate.reverseModels(sequelize, models);
+  currentState.tables = reverseModels(sequelize, models);
 
-  const upActions = migrate.parseDifference(previousState.tables, currentState.tables);
-  const downActions = migrate.parseDifference(currentState.tables, previousState.tables);
+  const upActions = parseDifference(previousState.tables, currentState.tables);
+  const downActions = parseDifference(currentState.tables, previousState.tables);
 
   // sort actions
-  migrate.sortActions(upActions);
-  migrate.sortActions(downActions);
+  sortActions(upActions);
+  sortActions(downActions);
 
-  const migration = migrate.getMigration(upActions, downActions);
+  const migration = getMigration(upActions, downActions);
 
   if (migration.commandsUp.length === 0) {
     console.log('No changes found');
@@ -101,7 +106,7 @@ const make = async (argv) => {
   const { type } = require(packageDir);
 
   // write migration to file
-  const info = migrate.writeMigration(
+  const info = writeMigration(
     currentState.revision,
     migration,
     migrationsDir,
