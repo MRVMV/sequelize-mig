@@ -1,15 +1,16 @@
 pull_request_rules:
   - name: Automatic merge on Travis success if author
     conditions:
-      - author~=^(mrvmv|depfu\[bot\]|dependabot(|-preview)\[bot\])$
-      - status-success=Travis CI - Pull Request
+      - author~=^(MRVMV|depfu\[bot\]|dependabot(|-preview)\[bot\])$
       - -label~=.*\bwip\b.*
+      - status-success=Travis CI - Pull Request
+      - status-success=CodeQL
     actions:
       merge:
         method: merge
   - name: say hi on new contribution
     conditions:
-      - -author~=^(mrvmv|depfu\[bot\]|dependabot(|-preview)\[bot\])$
+      - -author~=^(MRVMV|depfu\[bot\]|dependabot(|-preview)\[bot\])$
     actions:
         comment:
           message: |
