@@ -1,7 +1,7 @@
 pull_request_rules:
   - name: Automatic merge on Travis success if author
     conditions:
-      - author~=^(mrvmv|depfu|dependabot(|-preview)\[bot\])$
+      - author~=^(mrvmv|depfu\[bot\]|dependabot(|-preview)\[bot\])$
       - status-success=Travis CI - Pull Request
       - -label~=.*\bwip\b.*
     actions:
@@ -9,9 +9,9 @@ pull_request_rules:
         method: merge
   - name: say hi on new contribution
     conditions:
-      - -author~=^(mrvmv|depfu|dependabot(|-preview)\[bot\])$
+      - -author~=^(mrvmv|depfu\[bot\]|dependabot(|-preview)\[bot\])$
     actions:
         comment:
           message: |
-              Welcome to our great project!
+              Welcome {{author}} to our great project!
               We're delight to have you onboard <3
