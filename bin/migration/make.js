@@ -7,17 +7,12 @@ import path from 'path';
 import lodash from 'lodash';
 
 import { pathConfig } from '../../lib/functions.js';
-import {
-  sortActions,
-  parseDifference,
-  reverseModels,
-  getMigration,
-  writeMigration,
-} from '../../lib/migration.js';
-
-const { each } = lodash;
+import { getMigration, writeMigration } from '../../lib/migration.js';
+import { sortActions, parseDifference, reverseModels } from '../../lib/models.js';
 
 const require = createRequire(import.meta.url);
+
+const { each } = lodash;
 
 const make = async (argv) => {
   const { modelsDir, migrationsDir, stateDir, indexDir, packageDir } = await pathConfig(argv);
