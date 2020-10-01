@@ -27,6 +27,7 @@
     "sequelize",
     "migrations",
     "migration",
+    "migrate",
     "database",
     "db",
     "sql",
