@@ -73,7 +73,7 @@ const make = async (argv) => {
   const migration = getMigration(upActions, downActions);
 
   if (migration.commandsUp.length === 0) {
-    console.log('No changes found');
+    console.log('No changes found, No new migration needed!');
     return;
   }
 
