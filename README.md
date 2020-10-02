@@ -7,7 +7,7 @@
 [![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/MRVMV/sequelize-mig?logo=lgtm&style=flat-square)](https://lgtm.com/projects/g/MRVMV/sequelize-mig/context:javascript)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
-```
+```Bash
 Warning: THIS TOOL IS UNDER DEVELOPMENT AND NOT INTENDED TO PRODUCTION USE RIGHT NOW!!!!
 ```
 
@@ -56,7 +56,6 @@ sequelize-mig migration:make --preview
 ```
 
 - Finally run migration using sequelize-cli `sequelize db:migrate`
-
 - You can use --help to view help of the tool or specific command
 
 ### For Old Users
@@ -88,7 +87,7 @@ then the tool cant actually know if you deleted, or migrated or whatever you edi
 - `migration:make` tool creates `_current.json` and `_current_bak.json` files in `migrations` dir, these are used to calculate difference to the next migration. Do not remove them!
 - Tool create new migration with name `{timestamp}_{name}.{js|cjs}` but you can change every single option with parameters
 
-## TODO:
+## TODO
 
 - Allow init using es6 modules
 - Adding `renameColumn` in some way I didn't know until now (maybe comments)
