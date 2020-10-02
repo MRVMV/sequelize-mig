@@ -68,7 +68,7 @@ and you can continue using this tool normally (Planned)
 
 The migration:make tool supports auto detecting these actions
 
-```
+```Bash
 dropTable, removeColumn, removeIndex,
 createTable, addColumn, addIndex,
 changeColumn
