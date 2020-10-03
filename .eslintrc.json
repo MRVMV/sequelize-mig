@@ -20,9 +20,7 @@
     "prettier",
     "prettier/@typescript-eslint"
   ],
-  "ignorePatterns": [
-    "lib/assets/*/*.js"
-  ],
+  "ignorePatterns": ["lib/assets/*/*.js"],
   "rules": {
     "import/extensions": "off",
     "radix": ["error", "as-needed"],
@@ -38,6 +36,13 @@
       "error",
       {
         "ignoreArgsIfArgsAfterAreUsed": true
+      }
+    ],
+    "prefer-destructuring": [
+      "error",
+      {
+        "object": true,
+        "array": false
       }
     ]
   }
