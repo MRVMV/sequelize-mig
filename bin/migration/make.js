@@ -6,9 +6,9 @@ import fs from 'fs';
 import path from 'path';
 import lodash from 'lodash';
 
-import { pathConfig } from '../../lib/functions.js';
 import { getMigration, writeMigration } from '../../lib/migration.js';
-import { sortActions, parseDifference, reverseModels } from '../../lib/models.js';
+import { parseDifference, reverseModels } from '../../lib/models.js';
+import { sortActions, pathConfig } from '../../lib/helpers.js';
 
 const require = createRequire(import.meta.url);
 
