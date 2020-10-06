@@ -1,3 +1,16 @@
+# [2.3.0](https://github.com/mrvmv/sequelize-mig/compare/v2.2.0...v2.3.0) (2020-09-18)
+
+
+### Bug Fixes
+
+* fix sequelizerc ([1741a5c](https://github.com/mrvmv/sequelize-mig/commit/1741a5cf3cd7b0d28aeb42c0c0eb8775e9141d8a))
+* small fix for unused comparisons ([c6472cd](https://github.com/mrvmv/sequelize-mig/commit/c6472cd14818d8ed5c4704dd3af2d84afe50fe3e))
+
+
+### Features
+
+* add ignore-sequelizerc flag ([cb79b6e](https://github.com/mrvmv/sequelize-mig/commit/cb79b6ea0de3ca11165742fec2e136c2d8c62efb))
+
 # [2.2.0](https://github.com/mrvmv/sequelize-mig/compare/v2.1.2...v2.2.0) (2020-09-16)
 
 
