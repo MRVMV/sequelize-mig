@@ -6,7 +6,7 @@
   "main": "index.js",
   "private": false,
   "engines": {
-    "node": ">=14.13.0"
+    "node": ">=12.18.4"
   },
   "preferGlobal": true,
   "author": "MRVMV",
@@ -27,6 +27,7 @@
     "sequelize",
     "migrations",
     "migration",
+    "migrate",
     "database",
     "db",
     "sql",

@@ -1,1 +1,1 @@
-export { default } from './lib/migrate.js';
+export * from './lib/migration.js';

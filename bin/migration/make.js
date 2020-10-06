@@ -6,18 +6,13 @@ import fs from 'fs';
 import path from 'path';
 import lodash from 'lodash';
 
-import { pathConfig } from '../../lib/functions.js';
-import {
-  sortActions,
-  parseDifference,
-  reverseModels,
-  getMigration,
-  writeMigration,
-} from '../../lib/migration.js';
-
-const { each } = lodash;
+import { getMigration, writeMigration } from '../../lib/migration.js';
+import { parseDifference, reverseModels } from '../../lib/models.js';
+import { sortActions, pathConfig } from '../../lib/helpers.js';
 
 const require = createRequire(import.meta.url);
+
+const { each } = lodash;
 
 const make = async (argv) => {
   const { modelsDir, migrationsDir, stateDir, indexDir, packageDir } = await pathConfig(argv);
@@ -78,7 +73,7 @@ const make = async (argv) => {
   const migration = getMigration(upActions, downActions);
 
   if (migration.commandsUp.length === 0) {
-    console.log('No changes found');
+    console.log('No changes found, No new migration needed!');
     return;
   }
 
