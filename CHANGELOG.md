@@ -1,3 +1,13 @@
+## [2.3.1](https://github.com/mrvmv/sequelize-mig/compare/v2.3.0...v2.3.1) (2020-10-06)
+
+
+### Bug Fixes
+
+* addindex, removeindex breaking migrations ([f1a8bfa](https://github.com/mrvmv/sequelize-mig/commit/f1a8bfad2285acbccc48491b1190e6b293d0efbc))
+* if now changes in models no error ([f5abc5e](https://github.com/mrvmv/sequelize-mig/commit/f5abc5e9fe712f8b65732894e29e1d9315000259))
+* trying some updates to models.js ([a3e1786](https://github.com/mrvmv/sequelize-mig/commit/a3e1786829fa0861bcd092799b67c10cc8337c5b))
+* update index.js ([5e33685](https://github.com/mrvmv/sequelize-mig/commit/5e3368517b895ac7dc358ff2c7dfd0e7a128e8cd))
+
 # [2.3.0](https://github.com/mrvmv/sequelize-mig/compare/v2.2.0...v2.3.0) (2020-09-18)
 
 
