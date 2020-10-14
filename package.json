@@ -79,6 +79,10 @@
       ]
     ]
   },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
   "dependencies": {
     "deep-diff": "^1.0.2",
     "lodash": "^4.17.11",

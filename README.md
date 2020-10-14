@@ -5,7 +5,11 @@
 [![Build Status](https://img.shields.io/travis/mrvmv/sequelize-mig.svg?logo=travis&style=flat-square)](https://travis-ci.org/mrvmv/sequelize-mig)
 [![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/mrvmv/sequelize-mig?logo=snyk&style=flat-square)](https://snyk.io/test/github/mrvmv/sequelize-mig)
 [![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/MRVMV/sequelize-mig?logo=lgtm&style=flat-square)](https://lgtm.com/projects/g/MRVMV/sequelize-mig/context:javascript)
+
+
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
+[![Contribution-Welcomed](https://img.shields.io/badge/Contribution-Welcomed-blue?logo=github&style=flat-square)](https://github.com/MRVMV/sequelize-mig)
+[![Community Chat](https://img.shields.io/badge/Community-Chat-blueChat?logo=telegram&color=blue&style=flat-square)](https://t.me/SequelizeMig)
 
 ```Bash
 Warning: THIS TOOL IS UNDER DEVELOPMENT AND NOT INTENDED TO PRODUCTION USE RIGHT NOW!!!!
