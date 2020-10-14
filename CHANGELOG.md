@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/mrvmv/sequelize-mig/compare/v2.3.1...v2.3.2) (2020-10-14)
+
+
+### Bug Fixes
+
+* remove Optional chaining to support older node versions ([16793a4](https://github.com/mrvmv/sequelize-mig/commit/16793a497a952ca5fe4f40752d09880259db20af))
+
 ## [2.3.1](https://github.com/mrvmv/sequelize-mig/compare/v2.3.0...v2.3.1) (2020-10-06)
 
 
