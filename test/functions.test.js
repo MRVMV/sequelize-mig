@@ -1,8 +1,7 @@
 import { getYYYYMMDDHHMMSS , shuffleArray} from '../lib/functions.js';
 
 test('getYYYYMMDDHHMMSS', () => {
-  const today = new Date(2020, 1, 1, 2, 1, 1, 1);
-  expect(getYYYYMMDDHHMMSS(today)).toBe('20200201000101');
+  expect(getYYYYMMDDHHMMSS()).toHaveLength(14);
 });
 
 test('shuffleArray', () => {
