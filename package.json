@@ -37,7 +37,7 @@
     "sequelize-mig": "./bin/sequelize-mig.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest --runInBand",
     "sequelize-mig": "node ./bin/sequelize-mig.js",
     "semantic-release": "semantic-release"
   },
@@ -48,6 +48,10 @@
     "tabWidth": 2,
     "printWidth": 100,
     "useTabs": false
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-node",
+    "transform": {}
   },
   "release": {
     "branches": [
@@ -95,6 +99,7 @@
     "@babel/parser": "^7.11.5",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
+    "@types/jest": "^26.0.14",
     "@types/sequelize": "^4.28.9",
     "@types/yargs": "^15.0.8",
     "@typescript-eslint/eslint-plugin": "^4.4.1",
@@ -105,6 +110,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.5.3",
     "prettier-eslint": "^11.0.0",
     "semantic-release": "^17.2.1",
     "semantic-release-cli": "^5.4.0",
