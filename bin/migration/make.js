@@ -15,7 +15,7 @@ const require = createRequire(import.meta.url);
 const { each } = lodash;
 
 const make = async (argv) => {
-  const { modelsDir, migrationsDir, stateDir, indexDir, packageDir } = await pathConfig(argv);
+  const { modelsDir, migrationsDir, stateDir, indexDir, packageDir } = pathConfig(argv);
 
   if (!fs.existsSync(modelsDir)) {
     console.log("Can't find models directory. Use `sequelize init` to create it");
