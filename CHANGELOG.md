@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/mrvmv/sequelize-mig/compare/v2.3.2...v2.3.3) (2020-10-25)
+
+
+### Bug Fixes
+
+* double type was showing an error ([32f964f](https://github.com/mrvmv/sequelize-mig/commit/32f964fc84a3dcf609ba8a0785c533d24aaae82e))
+
 ## [2.3.2](https://github.com/mrvmv/sequelize-mig/compare/v2.3.1...v2.3.2) (2020-10-14)
 
 
