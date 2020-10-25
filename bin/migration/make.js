@@ -58,7 +58,7 @@ const make = async (argv) => {
     console.log('_current.json not found. first time running this tool');
   }
 
-  const { sequelize } = (await import(`file:\\${indexDir}`)).default;
+  const { sequelize } = (await import(`file:////${indexDir}`)).default;
   const { models } = sequelize;
 
   currentState.tables = reverseModels(sequelize, models);
