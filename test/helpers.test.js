@@ -1,4 +1,4 @@
-import { pathConfig } from '../lib/helpers.js';
+import { pathConfig, readAsset } from '../lib/helpers.js';
 
 test('pathConfig', async () => {
   const options = {
@@ -12,4 +12,7 @@ test('pathConfig', async () => {
     indexDir: 'example\\example\\models\\index.js',
     packageDir: 'example\\example\\package.json',
   });
+});
+test('readAsset', () => {
+  expect(readAsset('migrations/skeleton.js')).toBeTruthy();
 });
