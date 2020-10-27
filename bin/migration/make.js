@@ -15,7 +15,7 @@ const require = createRequire(import.meta.url);
 const { each } = lodash;
 
 const make = async (argv) => {
-  const { modelsDir, migrationsDir, stateDir, indexDir, packageDir } = await pathConfig(argv);
+  const { modelsDir, migrationsDir, stateDir, indexDir, packageDir } = pathConfig(argv);
 
   if (!fs.existsSync(modelsDir)) {
     console.log("Can't find models directory. Use `sequelize init` to create it");
@@ -58,7 +58,7 @@ const make = async (argv) => {
     console.log('_current.json not found. first time running this tool');
   }
 
-  const { sequelize } = (await import(`file:\\${indexDir}`)).default;
+  const { sequelize } = (await import(`file:////${indexDir}`)).default;
   const { models } = sequelize;
 
   currentState.tables = reverseModels(sequelize, models);
