@@ -5,12 +5,16 @@ test('pathConfig', async () => {
     pwdPath: 'example/example',
     ignoreSequelizerc: true,
   };
-  expect(pathConfig(options)).toStrictEqual({
-    modelsDir: 'example\\example\\models',
-    migrationsDir: 'example\\example\\migrations',
-    stateDir: 'example\\example\\models',
-    indexDir: 'example\\example\\models\\index.js',
-    packageDir: 'example\\example\\package.json',
+  const Config = pathConfig(options);
+  Object.entries(Config).forEach(([key, val]) => {
+    Config[key] = val.replace(/\\/g, '/');
+  });
+  expect(Config).toStrictEqual({
+    modelsDir: 'example/example/models',
+    migrationsDir: 'example/example/migrations',
+    stateDir: 'example/example/models',
+    indexDir: 'example/example/models/index.js',
+    packageDir: 'example/example/package.json',
   });
 });
 test('readAsset', () => {
