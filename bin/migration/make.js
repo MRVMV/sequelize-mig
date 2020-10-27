@@ -95,6 +95,7 @@ const make = async (argv) => {
 
   // save current state
   currentState.revision = previousState.revision + 1;
+  currentState.content = undefined; //deleting the earlier read content to avoid recursive content getting written
   fs.writeFileSync(currentState.path, JSON.stringify(currentState, null, 4));
 
   // eslint-disable-next-line import/no-dynamic-require
