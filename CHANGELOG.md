@@ -1,3 +1,10 @@
+## [2.3.5](https://github.com/mrvmv/sequelize-mig/compare/v2.3.4...v2.3.5) (2020-10-27)
+
+
+### Bug Fixes
+
+* replace currentState.content to perviousState ([c5771a6](https://github.com/mrvmv/sequelize-mig/commit/c5771a61dc4f8193327e1457b08acf75dedf953d))
+
 ## [2.3.4](https://github.com/mrvmv/sequelize-mig/compare/v2.3.3...v2.3.4) (2020-10-27)
 
 
