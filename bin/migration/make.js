@@ -4,15 +4,12 @@ import prettier from 'prettier';
 
 import fs from 'fs';
 import path from 'path';
-import lodash from 'lodash';
 
 import { getMigration, writeMigration } from '../../lib/migration.js';
 import { parseDifference, reverseModels } from '../../lib/models.js';
 import { sortActions, pathConfig } from '../../lib/helpers.js';
 
 const require = createRequire(import.meta.url);
-
-const { each } = lodash;
 
 const make = async (argv) => {
   const { modelsDir, migrationsDir, stateDir, indexDir, packageDir } = pathConfig(argv);
@@ -48,9 +45,8 @@ const make = async (argv) => {
   };
 
   if (currentState.exists) {
-    currentState.content = fs.readFileSync(currentState.path);
     try {
-      previousState = JSON.parse(currentState.content);
+      previousState = JSON.parse(fs.readFileSync(currentState.path));
     } catch (e) {
       console.log('_current.json syntax not valid');
     }
@@ -78,7 +74,7 @@ const make = async (argv) => {
   }
 
   // log migration actions
-  each(migration.consoleOut, (action, index) => console.log(`[Action #${index}] ${action}`));
+  migration.consoleOut.forEach((action, index) => console.log(`[Action #${index}] ${action}`));
 
   if (argv.preview) {
     console.log('Migration result:');
@@ -90,12 +86,13 @@ const make = async (argv) => {
     return;
   }
 
+  currentState.revision = previousState.revision + 1;
+
   // backup _current file
-  if (currentState.exists) fs.writeFileSync(currentState.backupPath, currentState.content);
+  if (currentState.exists)
+    fs.writeFileSync(currentState.backupPath, JSON.stringify(previousState, null, 4));
 
   // save current state
-  currentState.revision = previousState.revision + 1;
-  currentState.content = undefined; // deleting the earlier read content to avoid recursive content getting written
   fs.writeFileSync(currentState.path, JSON.stringify(currentState, null, 4));
 
   // eslint-disable-next-line import/no-dynamic-require
