@@ -1,3 +1,10 @@
+## [2.3.4](https://github.com/mrvmv/sequelize-mig/compare/v2.3.3...v2.3.4) (2020-10-27)
+
+
+### Bug Fixes
+
+* try to fix url host problem on linux devices ([9f8da83](https://github.com/mrvmv/sequelize-mig/commit/9f8da830940c37a7fed71d76688530a5d96a4435))
+
 ## [2.3.3](https://github.com/mrvmv/sequelize-mig/compare/v2.3.2...v2.3.3) (2020-10-25)
 
 
