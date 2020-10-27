@@ -1,3 +1,10 @@
+## [2.3.6](https://github.com/mrvmv/sequelize-mig/compare/v2.3.5...v2.3.6) (2020-10-27)
+
+
+### Bug Fixes
+
+* small fix for action.options not defined ([e66a52e](https://github.com/mrvmv/sequelize-mig/commit/e66a52e28c68b93aa15d20192c733978112d62bc))
+
 ## [2.3.5](https://github.com/mrvmv/sequelize-mig/compare/v2.3.4...v2.3.5) (2020-10-27)
 
 
