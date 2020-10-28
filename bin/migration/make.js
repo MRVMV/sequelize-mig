@@ -74,7 +74,7 @@ const make = async (argv) => {
   }
 
   // log migration actions
-  migration.consoleOut.forEach((action, index) => console.log(`[Action #${index}] ${action}`));
+  migration.consoles.forEach((action, index) => console.log(`[Action #${index}] ${action}`));
 
   if (argv.preview) {
     console.log('Migration result:');
