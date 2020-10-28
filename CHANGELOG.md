@@ -1,3 +1,18 @@
+# [2.4.0](https://github.com/mrvmv/sequelize-mig/compare/v2.3.7...v2.4.0) (2020-10-28)
+
+
+### Bug Fixes
+
+* fix bug in depends checking for null ([90ecfc4](https://github.com/mrvmv/sequelize-mig/commit/90ecfc447c222e44185dcec8319a7f6209d6c1a4))
+* fix huge bugs for index and changeColumn ([af2275c](https://github.com/mrvmv/sequelize-mig/commit/af2275cff8daf92c75eac8869c587f4f44bf8bf1))
+* writeMigration update consoleOut to consoles ([02abfe8](https://github.com/mrvmv/sequelize-mig/commit/02abfe88edbd47b2f08cd5dfff67257490a9103d))
+
+
+### Features
+
+* add getFileName to functions for future ([b03e81b](https://github.com/mrvmv/sequelize-mig/commit/b03e81b2a7f5178e7f0187f585eef1f502d48256))
+* add migration:undo ([c420177](https://github.com/mrvmv/sequelize-mig/commit/c4201778bdde14704e410f5d9980e7f20a6dada4))
+
 ## [2.3.7](https://github.com/mrvmv/sequelize-mig/compare/v2.3.6...v2.3.7) (2020-10-28)
 
 
