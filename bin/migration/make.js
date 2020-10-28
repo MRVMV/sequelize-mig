@@ -1,9 +1,8 @@
 import { createRequire } from 'module';
 
-import prettier from 'prettier';
-
 import fs from 'fs';
 import path from 'path';
+import prettier from 'prettier';
 
 import { getMigration, writeMigration } from '../../lib/migration.js';
 import { parseDifference, reverseModels } from '../../lib/models.js';
