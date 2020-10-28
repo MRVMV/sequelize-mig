@@ -1,3 +1,15 @@
+## [2.3.7](https://github.com/mrvmv/sequelize-mig/compare/v2.3.6...v2.3.7) (2020-10-28)
+
+
+### Bug Fixes
+
+* remove lodash dep and make template native ([88c9feb](https://github.com/mrvmv/sequelize-mig/commit/88c9feb50bdb69aa3eda6aa6a87f7354f5ca2754))
+
+
+### Performance Improvements
+
+* update assets to new template ([950a832](https://github.com/mrvmv/sequelize-mig/commit/950a832ce391a2d8ff933374672c788f5ed8ce11))
+
 ## [2.3.6](https://github.com/mrvmv/sequelize-mig/compare/v2.3.5...v2.3.6) (2020-10-27)
 
 
