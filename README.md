@@ -19,9 +19,10 @@ The tool is built using es6
 And its not intended to replace sequelize-cli its just completing it
 
 This tool provide these commands:
+- `migration:make` or `migration:add` - to create new migrations by comparing new version of your modules to old ones
+- `migration:undo` or `migration:revert` - delete last migration file and return to backup state file of the models
 
-- `migration:make` or `migration:make` - to create new migrations by comparing new version of your modules to old ones
-- `migration:undo` - delete last migration file and return to backup schema file of the models (Planned)
+Planned:
 - `migration:sync` - Sync the models schema file with current models without migrating (Planned)
 - `init` - tool to init required files for sequelize using new es6 schema (Planned)
 
@@ -83,7 +84,7 @@ and Im trying to find a way to know old column name to implement renameColumn be
 ## Explanation
 
 The tool works by getting the schema of the models into `_current.json` and every time you run `migration:make` the tool will compare this file with new schema and write the new migration file
-then the tool cant actually know if you deleted, or migrated or whatever you edited to these files...
+then *this tool cant actually know if you deleted, or migrated or whatever you edited to these files*...
 
 ## Notes
 
@@ -96,7 +97,6 @@ then the tool cant actually know if you deleted, or migrated or whatever you edi
 - Allow init using es6 modules
 - Adding `renameColumn` in some way I didn't know until now (maybe comments)
 - `migration:sync` for old users
-- `migration:undo` to delete last migration
 - auto add renameColumn conversion when edits are only to letters case or adding \_
 
 ## Credits

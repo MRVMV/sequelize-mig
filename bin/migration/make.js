@@ -1,9 +1,8 @@
 import { createRequire } from 'module';
 
-import prettier from 'prettier';
-
 import fs from 'fs';
 import path from 'path';
+import prettier from 'prettier';
 
 import { getMigration, writeMigration } from '../../lib/migration.js';
 import { parseDifference, reverseModels } from '../../lib/models.js';
@@ -74,7 +73,7 @@ const make = async (argv) => {
   }
 
   // log migration actions
-  migration.consoleOut.forEach((action, index) => console.log(`[Action #${index}] ${action}`));
+  migration.consoles.forEach((action, index) => console.log(`[Action #${index}] ${action}`));
 
   if (argv.preview) {
     console.log('Migration result:');
