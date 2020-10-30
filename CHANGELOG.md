@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/mrvmv/sequelize-mig/compare/v2.4.0...v2.4.1) (2020-10-30)
+
+
+### Bug Fixes
+
+* refactor getPartialMigration n fix droptable ([535656c](https://github.com/mrvmv/sequelize-mig/commit/535656cd9eae5af0f014f0b445df54e5a77f7890))
+
 # [2.4.0](https://github.com/mrvmv/sequelize-mig/compare/v2.3.7...v2.4.0) (2020-10-28)
 
 
