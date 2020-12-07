@@ -92,7 +92,7 @@
     "object-hash": "^2.0.3",
     "prettier": "^2.2.1",
     "sequelize": "^6.3.5",
-    "yargs": "^16.1.0"
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@babel/parser": "^7.12.3",
