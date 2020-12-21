@@ -1,10 +1,19 @@
-module.exports = (DB, { INTEGER, BIGINT, DATE, STRING, ENUM, BOOLEAN, DATEONLY, NOW }) => {
+module.exports = (DB, { INTEGER, BIGINT, DATE, STRING, ENUM, BOOLEAN, DATEONLY, NOW, DECIMAL }) => {
   const Model = DB.define(
     'account',
     {
-      id: { type: INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
+      id: {
+        type: INTEGER.UNSIGNED,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      budget: {
+        type: DECIMAL(6, 2),
+        allowNull: false,
+      },
       test_param: { type: BIGINT, allowNull: false, defaultValue: 1000 },
-      first_name: { type: STRING, allowNull: true, defaultValue: 'abc', field: 'first-name' },
+      first_name: { type: STRING, allowNull: false, defaultValue: 'abc', field: 'first-name' },
       last_name: { type: STRING, allowNull: false, defaultValue: '' },
       nickname: { type: STRING, allowNull: false, defaultValue: '' },
       gender: {

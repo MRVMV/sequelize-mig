@@ -1,16 +1,29 @@
-module.exports = (DB, { INTEGER, STRING, BOOLEAN }) => {
+module.exports = (DB, { INTEGER, STRING, DOUBLE }) => {
   const Model = DB.define(
     'country',
     {
       id: { type: INTEGER, allowNull: false, primaryKey: true, autoIncrement: true },
       title: { type: STRING, allowNull: false },
-      display: { type: BOOLEAN, allowNull: false, defaultValue: true },
+      display: { type: STRING, allowNull: false, defaultValue: 'Hi' },
+      longitude: {
+        type: DOUBLE,
+        allowNull: true,
+      },
+      latitude: {
+        type: DOUBLE,
+        allowNull: true,
+      },
     },
     {
       timestamps: false,
       underscored: true,
       tableName: 'country',
-      indexes: [{ fields: ['title'] }, { fields: ['display'] }],
+      indexes: [
+        { fields: ['title'] },
+        { fields: ['display'] },
+        { fields: ['longitude'] },
+        { fields: ['latitude'] },
+      ],
     },
   );
 
