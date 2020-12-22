@@ -1,3 +1,58 @@
+## [2.4.1](https://github.com/mrvmv/sequelize-mig/compare/v2.4.0...v2.4.1) (2020-10-30)
+
+
+### Bug Fixes
+
+* refactor getPartialMigration n fix droptable ([535656c](https://github.com/mrvmv/sequelize-mig/commit/535656cd9eae5af0f014f0b445df54e5a77f7890))
+
+# [2.4.0](https://github.com/mrvmv/sequelize-mig/compare/v2.3.7...v2.4.0) (2020-10-28)
+
+
+### Bug Fixes
+
+* fix bug in depends checking for null ([90ecfc4](https://github.com/mrvmv/sequelize-mig/commit/90ecfc447c222e44185dcec8319a7f6209d6c1a4))
+* fix huge bugs for index and changeColumn ([af2275c](https://github.com/mrvmv/sequelize-mig/commit/af2275cff8daf92c75eac8869c587f4f44bf8bf1))
+* writeMigration update consoleOut to consoles ([02abfe8](https://github.com/mrvmv/sequelize-mig/commit/02abfe88edbd47b2f08cd5dfff67257490a9103d))
+
+
+### Features
+
+* add getFileName to functions for future ([b03e81b](https://github.com/mrvmv/sequelize-mig/commit/b03e81b2a7f5178e7f0187f585eef1f502d48256))
+* add migration:undo ([c420177](https://github.com/mrvmv/sequelize-mig/commit/c4201778bdde14704e410f5d9980e7f20a6dada4))
+
+## [2.3.7](https://github.com/mrvmv/sequelize-mig/compare/v2.3.6...v2.3.7) (2020-10-28)
+
+
+### Bug Fixes
+
+* remove lodash dep and make template native ([88c9feb](https://github.com/mrvmv/sequelize-mig/commit/88c9feb50bdb69aa3eda6aa6a87f7354f5ca2754))
+
+
+### Performance Improvements
+
+* update assets to new template ([950a832](https://github.com/mrvmv/sequelize-mig/commit/950a832ce391a2d8ff933374672c788f5ed8ce11))
+
+## [2.3.6](https://github.com/mrvmv/sequelize-mig/compare/v2.3.5...v2.3.6) (2020-10-27)
+
+
+### Bug Fixes
+
+* small fix for action.options not defined ([e66a52e](https://github.com/mrvmv/sequelize-mig/commit/e66a52e28c68b93aa15d20192c733978112d62bc))
+
+## [2.3.5](https://github.com/mrvmv/sequelize-mig/compare/v2.3.4...v2.3.5) (2020-10-27)
+
+
+### Bug Fixes
+
+* replace currentState.content to perviousState ([c5771a6](https://github.com/mrvmv/sequelize-mig/commit/c5771a61dc4f8193327e1457b08acf75dedf953d))
+
+## [2.3.4](https://github.com/mrvmv/sequelize-mig/compare/v2.3.3...v2.3.4) (2020-10-27)
+
+
+### Bug Fixes
+
+* try to fix url host problem on linux devices ([9f8da83](https://github.com/mrvmv/sequelize-mig/commit/9f8da830940c37a7fed71d76688530a5d96a4435))
+
 ## [2.3.3](https://github.com/mrvmv/sequelize-mig/compare/v2.3.2...v2.3.3) (2020-10-25)
 
 

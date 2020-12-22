@@ -4,6 +4,7 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import make from './migration/make.js';
+import sync from './migration/sync.js';
 import undo from './migration/undo.js';
 
 yargs(hideBin(process.argv))
@@ -36,6 +37,19 @@ yargs(hideBin(process.argv))
         })
         .example('sequelize-mig migration:make -n InitDb -p').argv,
     (argv) => make(argv),
+  )
+  .command(
+    ['migration:sync'],
+    'Sync state file to current schema (without making migration files)',
+    (yargsA) =>
+      yargsA
+        .positional('preview', {
+          describe: 'Preview sync actions without updating state',
+          type: 'boolean',
+          alias: 'p',
+        })
+        .example('sequelize-mig migration:sync -p').argv,
+    (argv) => sync(argv),
   )
   .command(
     ['migration:undo', 'migration:revert'],
