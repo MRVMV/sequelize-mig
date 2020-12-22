@@ -44,7 +44,7 @@ yargs(hideBin(process.argv))
     (yargsA) =>
       yargsA
         .positional('preview', {
-          describe: 'Preview migration actions without writing migration file',
+          describe: 'Preview sync actions without updating state',
           type: 'boolean',
           alias: 'p',
         })

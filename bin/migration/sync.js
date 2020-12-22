@@ -1,66 +1,19 @@
 import fs from 'fs';
-import path from 'path';
 import prettier from 'prettier';
-import { pathConfig, sortActions } from '../../lib/helpers.js';
-import { getMigration } from '../../lib/migration.js';
-import { parseDifference, reverseModels } from '../../lib/models.js';
+import { pathConfig } from '../../lib/helpers.js';
+import { migrate } from '../../lib/migration.js';
 
 const sync = async (argv) => {
-  const { modelsDir, migrationsDir, stateDir, indexDir } = pathConfig(argv);
+  const configOptions = pathConfig(argv);
 
-  if (!fs.existsSync(modelsDir)) {
-    console.log("Can't find models directory. Use `sequelize init` to create it");
+  let migrationResult;
+  try {
+    migrationResult = await migrate(configOptions);
+  } catch (e) {
+    console.error(e);
     return;
   }
-
-  if (!fs.existsSync(migrationsDir)) {
-    console.log("Can't find migrations directory. Use `sequelize init` to create it");
-    return;
-  }
-
-  if (!fs.existsSync(stateDir)) {
-    console.log("Can't find State directory. I will make it manually");
-    fs.mkdirSync(stateDir, { recursive: true });
-  }
-
-  // current state
-  const currentState = {
-    tables: {},
-    path: path.join(stateDir, '_current.json'),
-    backupPath: path.join(stateDir, '_current_bak.json'),
-  };
-
-  currentState.exists = fs.existsSync(currentState.path);
-
-  // load last state
-  let previousState = {
-    revision: 0,
-    tables: {},
-  };
-
-  if (currentState.exists) {
-    try {
-      previousState = JSON.parse(fs.readFileSync(currentState.path));
-    } catch (e) {
-      console.log('_current.json syntax not valid');
-    }
-  } else {
-    console.log('_current.json not found. first time running this tool');
-  }
-
-  const { sequelize } = (await import(`file:////${indexDir}`)).default;
-  const { models } = sequelize;
-
-  currentState.tables = reverseModels(sequelize, models);
-
-  const upActions = parseDifference(previousState.tables, currentState.tables);
-  const downActions = parseDifference(currentState.tables, previousState.tables);
-
-  // sort actions
-  sortActions(upActions);
-  sortActions(downActions);
-
-  const migration = getMigration(upActions, downActions);
+  let { previousState, currentState, migration } = migrationResult;
 
   if (migration.commandsUp.length === 0) {
     console.log('No changes found, No new migration needed!');
@@ -80,13 +33,12 @@ const sync = async (argv) => {
     return;
   }
 
-  currentState.revision = previousState.revision + 1;
-
   // backup _current file
   if (currentState.exists)
     fs.writeFileSync(currentState.backupPath, JSON.stringify(previousState, null, 4));
 
   // save current state
+  currentState.revision = previousState.revision + 1;
   fs.writeFileSync(currentState.path, JSON.stringify(currentState, null, 4));
 
   console.log('Migrations synced successfully');
