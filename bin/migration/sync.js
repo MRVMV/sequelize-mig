@@ -34,7 +34,7 @@ const sync = async (argv) => {
 
   await updateMigrationState(currentState, previousState);
   
-  console.log('Migrations synced successfully');
+  console.log('State file synced to db successfully');
 };
 
 export default sync;
