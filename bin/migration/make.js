@@ -1,8 +1,7 @@
-import fs from 'fs';
 import { createRequire } from 'module';
 import prettier from 'prettier';
 import { pathConfig } from '../../lib/helpers.js';
-import { migrate, writeMigration } from '../../lib/migration.js';
+import { migrate, updateMigrationState, writeMigration } from '../../lib/migration.js';
 
 const require = createRequire(import.meta.url);
 
@@ -36,13 +35,7 @@ const make = async (argv) => {
     return;
   }
 
-  // backup _current file
-  if (currentState.exists)
-    fs.writeFileSync(currentState.backupPath, JSON.stringify(previousState, null, 4));
-
-  // save current state
-  currentState.revision = previousState.revision + 1;
-  fs.writeFileSync(currentState.path, JSON.stringify(currentState, null, 4));
+  await updateMigrationState(currentState, previousState);
 
   // eslint-disable-next-line import/no-dynamic-require
   const { type } = require(configOptions.packageDir);

@@ -48,11 +48,6 @@ yargs(hideBin(process.argv))
           type: 'boolean',
           alias: 'p',
         })
-        .positional('es6', {
-          describe: 'Force .cjs file extension',
-          type: 'boolean',
-          alias: 'cjs',
-        })
         .example('sequelize-mig migration:sync -p').argv,
     (argv) => sync(argv),
   )
