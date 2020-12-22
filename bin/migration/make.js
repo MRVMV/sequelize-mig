@@ -13,10 +13,10 @@ const make = async (argv) => {
   try {
     migrationResult = await migrate(configOptions);
   } catch (e) {
-    console.error(e);
+    console.error(e.message);
     return;
   }
-  let { previousState, currentState, migration } = migrationResult;
+  const { previousState, currentState, migration } = migrationResult;
 
   if (migration.commandsUp.length === 0) {
     console.log('No changes found, No new migration needed!');
