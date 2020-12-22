@@ -33,7 +33,7 @@ const sync = async (argv) => {
   }
 
   await updateMigrationState(currentState, previousState);
-  
+
   console.log('State file synced to db successfully');
 };
 
