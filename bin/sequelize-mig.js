@@ -4,6 +4,7 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import make from './migration/make.js';
+import sync from './migration/sync.js';
 import undo from './migration/undo.js';
 
 yargs(hideBin(process.argv))
@@ -36,6 +37,24 @@ yargs(hideBin(process.argv))
         })
         .example('sequelize-mig migration:make -n InitDb -p').argv,
     (argv) => make(argv),
+  )
+  .command(
+    ['migration:sync'],
+    'Sync migrations',
+    (yargsA) =>
+      yargsA
+        .positional('preview', {
+          describe: 'Preview migration actions without writing migration file',
+          type: 'boolean',
+          alias: 'p',
+        })
+        .positional('es6', {
+          describe: 'Force .cjs file extension',
+          type: 'boolean',
+          alias: 'cjs',
+        })
+        .example('sequelize-mig migration:sync -p').argv,
+    (argv) => sync(argv),
   )
   .command(
     ['migration:undo', 'migration:revert'],
