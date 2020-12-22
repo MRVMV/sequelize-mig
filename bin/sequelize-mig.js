@@ -40,7 +40,7 @@ yargs(hideBin(process.argv))
   )
   .command(
     ['migration:sync'],
-    'Sync migrations',
+    'Sync state file to current schema (without making migration files)',
     (yargsA) =>
       yargsA
         .positional('preview', {
