@@ -21,9 +21,9 @@ And its not intended to replace sequelize-cli its just completing it
 This tool provide these commands:
 - `migration:make` or `migration:add` - to create new migrations by comparing new version of your modules to old ones
 - `migration:undo` or `migration:revert` - delete last migration file and return to backup state file of the models
+- `migration:sync` - Sync the models schema file with current models without migrating (Planned)
 
 Planned:
-- `migration:sync` - Sync the models schema file with current models without migrating (Planned)
 - `init` - tool to init required files for sequelize using new es6 schema (Planned)
 
 ## Install
@@ -67,7 +67,7 @@ sequelize-mig migration:make --preview
 
 If you already used migrations before knowing this tool you can easily fully migrate in the sequelize-cli tool
 and then run `migration:sync` and tool will update `_current.json`
-and you can continue using this tool normally (Planned)
+and you can continue using this tool normally
 
 ## Limitations
 
@@ -96,7 +96,6 @@ then *this tool cant actually know if you deleted, or migrated or whatever you e
 
 - Allow init using es6 modules
 - Adding `renameColumn` in some way I didn't know until now (maybe comments)
-- `migration:sync` for old users
 - auto add renameColumn conversion when edits are only to letters case or adding \_
 
 ## Credits
