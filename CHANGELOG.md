@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/mrvmv/sequelize-mig/compare/v2.4.1...v2.5.0) (2020-12-31)
+
+
+### Features
+
+* Force new release, add sync to readme ([7bdb2b7](https://github.com/mrvmv/sequelize-mig/commit/7bdb2b7e91a169fd859a476ef560df0f8c4f8b37))
+
 ## [2.4.1](https://github.com/mrvmv/sequelize-mig/compare/v2.4.0...v2.4.1) (2020-10-30)
 
 
