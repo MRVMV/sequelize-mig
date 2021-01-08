@@ -23,7 +23,9 @@ const make = async (argv) => {
   }
 
   // log migration actions
-  migration.consoles.forEach((action, index) => console.log(`[Action #${index}] ${action}`));
+  migration.consoles.forEach((action, index) =>
+    console.log(`[Action #${(index + 1).toString().padStart(2, '0')}] ${action}`),
+  );
 
   if (argv.preview) {
     console.log('Migration result:');
