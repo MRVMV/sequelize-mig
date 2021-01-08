@@ -4,12 +4,18 @@ import fs from 'fs';
 import path from 'path';
 
 import { pathConfig } from '../../lib/helpers.js';
-import { getFileName } from '../../lib/functions.js';
+import { getFileName, setLogLevel, log } from '../../lib/functions.js';
 
 const require = createRequire(import.meta.url);
 
 const undo = async (argv) => {
-  const { migrationsDir, stateDir } = pathConfig(argv);
+  setLogLevel(argv.logLevel);
+  
+  const configOptions = pathConfig(argv);
+
+  const { migrationsDir, stateDir } = configOptions;
+
+  log(1, `configOptions:${JSON.stringify(configOptions, null, 2)}`);
 
   const curStatePath = path.join(stateDir, '_current.json');
   const curStateName = getFileName(curStatePath);

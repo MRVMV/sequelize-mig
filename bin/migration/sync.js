@@ -1,9 +1,13 @@
 import prettier from 'prettier';
 import { pathConfig } from '../../lib/helpers.js';
 import { migrate, updateMigrationState } from '../../lib/migration.js';
+import { setLogLevel, log } from '../../lib/functions.js';
 
 const sync = async (argv) => {
+  setLogLevel(argv.logLevel);
   const configOptions = pathConfig(argv);
+
+  log(1, `configOptions:${JSON.stringify(configOptions, null, 2)}`);
 
   let migrationResult;
   try {
@@ -20,7 +24,9 @@ const sync = async (argv) => {
   }
 
   // log migration actions
-  migration.consoles.forEach((action, index) => console.log(`[Action #${index}] ${action}`));
+  migration.consoles.forEach((action, index) =>
+    console.log(`[Action #${(index + 1).toString().padStart(2, '0')}] ${action}`),
+  );
 
   if (argv.preview) {
     console.log('Migration result:');

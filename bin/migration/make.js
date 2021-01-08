@@ -2,11 +2,15 @@ import { createRequire } from 'module';
 import prettier from 'prettier';
 import { pathConfig } from '../../lib/helpers.js';
 import { migrate, updateMigrationState, writeMigration } from '../../lib/migration.js';
+import { setLogLevel, log } from '../../lib/functions.js';
 
 const require = createRequire(import.meta.url);
 
 const make = async (argv) => {
+  setLogLevel(argv.logLevel);
+
   const configOptions = pathConfig(argv);
+  log(1, `configOptions:${JSON.stringify(configOptions, null, 2)}`);
 
   let migrationResult;
   try {
