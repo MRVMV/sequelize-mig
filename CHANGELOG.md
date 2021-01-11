@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/mrvmv/sequelize-mig/compare/v2.5.0...v2.5.1) (2021-01-11)
+
+
+### Bug Fixes
+
+* example/package.json & example/yarn.lock to reduce vulnerabilities ([587821d](https://github.com/mrvmv/sequelize-mig/commit/587821d26284eea4f9caa1f8fff9f9e23dc0ecc7))
+
 # [2.5.0](https://github.com/mrvmv/sequelize-mig/compare/v2.4.1...v2.5.0) (2020-12-31)
 
 
