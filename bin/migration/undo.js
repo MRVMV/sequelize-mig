@@ -10,7 +10,7 @@ const require = createRequire(import.meta.url);
 
 const undo = async (argv) => {
   setLogLevel(argv.logLevel);
-  
+
   const configOptions = pathConfig(argv);
 
   const { migrationsDir, stateDir } = configOptions;
@@ -35,9 +35,9 @@ const undo = async (argv) => {
     bakStatePath = curState.backupPath;
 
     curStateRevision = curState.revision;
-    console.log(`Current state file: ${curStateName}, Revision: ${curStateRevision}`);
+    log(3, `Current state file: ${curStateName}, Revision: ${curStateRevision}`);
   } else {
-    console.log("Can't find current state. Skipping");
+    log(3, `Can't find current state. Skipping`);
   }
 
   if (fs.existsSync(migrationsDir)) {
@@ -48,12 +48,13 @@ const undo = async (argv) => {
       curMigPath = path.join(migrationsDir, curMigName);
 
       curMigRevision = (await import(`file:////${curMigPath}`)).default.info.revision;
-      console.log(`Current migration file: ${curMigName}, Revision: ${curMigRevision}`);
+
+      log(3, `Current migration file: ${curMigName}, Revision: ${curMigRevision}`);
     } else {
-      console.log("Can't find any migrations files. Skipping");
+      log(3, `Can't find any migrations files. Skipping`);
     }
   } else {
-    console.log("Can't find migrations folder. Skipping");
+    log(3, `Can't find any migrations folder. Skipping`);
   }
 
   if (fs.existsSync(bakStatePath)) bakStateRevision = curStateRevision - 1;
@@ -69,27 +70,29 @@ const undo = async (argv) => {
   ) {
     if (curStateRevision && argv.delCurStt) {
       fs.unlinkSync(curStatePath);
-      console.log(`Deleted current state file: ${curStateName}`);
+      log(3, `Deleted current state file: ${curStateName}`);
     }
 
     if (curMigRevision && argv.delCurMig) {
       fs.unlinkSync(curMigPath);
-      console.log(`Deleted current migration file: ${curMigName}`);
+      log(3, `Deleted current migration file: ${curMigName}`);
     }
 
     if (bakStateRevision && argv.renBakStt) {
       fs.renameSync(bakStatePath, curStatePath);
 
       bakStateName = getFileName(bakStatePath);
-      console.log(
+      log(
+        3,
         `Reverted to backup state: ${bakStateName} new name: ${curStateName}, Revision: ${bakStateRevision}`,
       );
     } else if (!bakStateRevision) {
-      console.log("Can't find backup state. Skipping.");
+      log(3, "Can't find backup state. Skipping.");
     }
-    console.log('We are done!');
+    log(3, 'We are done!');
   } else {
-    console.log(
+    log(
+      3,
       `Revisions from current state and current migration Are not equal.
       So they are not synced. anyway you can force tool running with -f or turn on specific options`,
     );
