@@ -14,6 +14,7 @@ test('pathConfig', async () => {
   const options = {
     pwdPath: 'example/example',
     ignoreSequelizerc: true,
+    debug: false,
   };
   const Config = pathConfig(options);
   Object.entries(Config).forEach(([key, val]) => {

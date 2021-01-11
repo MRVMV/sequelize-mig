@@ -16,24 +16,24 @@ yargs(hideBin(process.argv))
     (yargsA) =>
       yargsA
         .positional('name', {
-          describe: 'Set migration name (default: "noname")',
-          type: 'string',
           alias: 'n',
+          type: 'string',
+          describe: 'Set migration name (default: "noname")',
         })
         .positional('preview', {
-          describe: 'Preview migration actions without writing migration file',
-          type: 'boolean',
           alias: 'p',
+          type: 'boolean',
+          describe: 'Preview migration actions without writing migration file',
         })
         .positional('es6', {
-          describe: 'Force .cjs file extension',
-          type: 'boolean',
           alias: 'cjs',
+          type: 'boolean',
+          describe: 'Force .cjs file extension',
         })
         .positional('comment', {
-          describe: 'Set migration comment',
-          type: 'string',
           alias: 'c',
+          type: 'string',
+          describe: 'Set migration comment',
         })
         .example('sequelize-mig migration:make -n InitDb -p').argv,
     (argv) => make(argv),
@@ -44,9 +44,9 @@ yargs(hideBin(process.argv))
     (yargsA) =>
       yargsA
         .positional('preview', {
-          describe: 'Preview sync actions without updating state',
-          type: 'boolean',
           alias: 'p',
+          type: 'boolean',
+          describe: 'Preview sync actions without updating state',
         })
         .example('sequelize-mig migration:sync -p').argv,
     (argv) => sync(argv),
@@ -57,65 +57,71 @@ yargs(hideBin(process.argv))
     (yargsA) =>
       yargsA
         .positional('force', {
-          describe: 'force undo even if revisions not equal',
-          type: 'boolean',
           alias: 'f',
+          type: 'boolean',
+          describe: 'force undo even if revisions not equal',
         })
         .positional('delete-current-state', {
-          describe: 'delete current state (default: true)',
-          type: 'boolean',
           alias: 'del-cur-stt',
+          type: 'boolean',
           default: true,
+          describe: 'delete current state (default: true)',
         })
         .positional('delete-current-migration', {
-          describe: 'delete current migration (default: true)',
-          type: 'boolean',
           alias: 'del-cur-mig',
+          type: 'boolean',
           default: true,
+          describe: 'delete current migration (default: true)',
         })
         .positional('rename-backup-state', {
-          describe: 'rename backup state (default: true)',
-          type: 'boolean',
           alias: 'ren-bak-stt',
+          type: 'boolean',
           default: true,
+          describe: 'rename backup state (default: true)',
         })
         .example('sequelize-mig migration:undo').argv,
     (argv) => undo(argv),
   )
   .option('pwd-path', {
-    describe: 'Override PWD (or just navigate to specified folder in it) (default to ./)',
-    type: 'string',
     alias: 'pwdp',
+    type: 'string',
+    describe: 'Override PWD (or just navigate to specified folder in it) (default to ./)',
   })
   .option('ignore-sequelizerc', {
-    describe: 'force pwd even on sequelizerc (default to false)',
-    type: 'boolean',
     alias: 'ignrc',
+    type: 'boolean',
+    describe: 'force pwd even on sequelizerc (default to false)',
   })
   .option('sequelizerc-path', {
-    describe: 'The path to the .sequelizerc file (default to ./.sequelizerc)',
-    type: 'string',
     alias: 'seqrcp',
+    type: 'string',
+    describe: 'The path to the .sequelizerc file (default to ./.sequelizerc)',
   })
   .option('migrations-path', {
-    describe: 'The path to the migrations folder (default to ./migrations)',
-    type: 'string',
     alias: 'migp',
+    type: 'string',
+    describe: 'The path to the migrations folder (default to ./migrations)',
   })
   .option('models-path', {
-    describe: 'The path to the models folder (default to ./models)',
-    type: 'string',
     alias: 'modp',
+    type: 'string',
+    describe: 'The path to the models folder (default to ./models)',
   })
   .option('state-path', {
-    describe: 'The path to the state folder where schema is saved (default to migrations-path)',
-    type: 'string',
     alias: 'statp',
+    type: 'string',
+    describe: 'The path to the state folder where schema is saved (default to migrations-path)',
   })
   .option('index-file-path', {
-    describe: 'The path to the index file (default to models-path/index.js)',
-    type: 'string',
     alias: 'indxp',
+    type: 'string',
+    describe: 'The path to the index file (default to models-path/index.js)',
+  })
+  .option('log-level', {
+    alias: 'll',
+    type: 'number',
+    default: 3,
+    describe: 'The less, The more you see, default: 3...',
   })
   .alias('help', 'h')
   .alias('version', 'v')
