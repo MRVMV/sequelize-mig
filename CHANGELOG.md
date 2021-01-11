@@ -1,3 +1,12 @@
+# [2.6.0](https://github.com/mrvmv/sequelize-mig/compare/v2.5.1...v2.6.0) (2021-01-11)
+
+
+### Features
+
+* add check for index file exist ([dc23493](https://github.com/mrvmv/sequelize-mig/commit/dc23493a088e01657da51b4beca8c8568726c813))
+* add some checks for better error handling ([a1d9ba1](https://github.com/mrvmv/sequelize-mig/commit/a1d9ba1be407c05afc1c37e3aff11a8791fe4a68))
+* added a lot of checks for errors and new log ([076932a](https://github.com/mrvmv/sequelize-mig/commit/076932a1ab31acb36311751655a03f889f1486d5))
+
 ## [2.5.1](https://github.com/mrvmv/sequelize-mig/compare/v2.5.0...v2.5.1) (2021-01-11)
 
 
