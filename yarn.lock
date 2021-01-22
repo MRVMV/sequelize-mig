@@ -7722,9 +7722,9 @@ saxes@^5.0.0:
     xmlchars "^2.2.0"
 
 semantic-release-cli@^5.4.0:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-5.4.1.tgz#e8034cd08e22ed75d9a929c22af236e4b92f7fc5"
-  integrity sha512-1AG5XZLxcFGWlbBc9SQNTXBL7Vs3OCVk+Z7+/59hPgO6Oxt+6R2wW8LmPpK4V440vaXZ9oDbAmtqvkSGKyOFWQ==
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-5.4.3.tgz#660beeecdfbaf7232e2ef75d2892282ff918581b"
+  integrity sha512-m0o7ofAf1jWDva6FWhIiqABYbywV81iQW8nkrhlDTA+J59YmSxJ1wW2FQ5xHuJCBtO56i4A4McK1kdxNjqNb7Q==
   dependencies:
     babel-polyfill "^6.26.0"
     babel-preset-env "^1.6.1"
