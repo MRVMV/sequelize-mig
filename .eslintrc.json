@@ -1,7 +1,7 @@
 {
   "env": {
     "commonjs": false,
-    "es2020": true,
+    "es2021": true,
     "node": true,
     "jest": true
   },
@@ -25,11 +25,19 @@
   "rules": {
     "import/extensions": "off",
     "radix": ["error", "as-needed"],
-    "no-console": "off",
     "indent": "off",
+    "no-console": "off",
     "no-plusplus": "off",
     "no-param-reassign": "off",
     "no-unused-vars": "off",
+    "no-await-in-loop": "off",
+    "import/prefer-default-export": "off",
+    "no-constant-condition": [
+      "error",
+      {
+        "checkLoops": false
+      }
+    ],
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
