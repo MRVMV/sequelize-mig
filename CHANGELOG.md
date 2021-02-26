@@ -1,3 +1,26 @@
+# [2.6.0](https://github.com/mrvmv/sequelize-mig/compare/v2.5.1...v2.6.0) (2021-01-11)
+
+
+### Features
+
+* add check for index file exist ([dc23493](https://github.com/mrvmv/sequelize-mig/commit/dc23493a088e01657da51b4beca8c8568726c813))
+* add some checks for better error handling ([a1d9ba1](https://github.com/mrvmv/sequelize-mig/commit/a1d9ba1be407c05afc1c37e3aff11a8791fe4a68))
+* added a lot of checks for errors and new log ([076932a](https://github.com/mrvmv/sequelize-mig/commit/076932a1ab31acb36311751655a03f889f1486d5))
+
+## [2.5.1](https://github.com/mrvmv/sequelize-mig/compare/v2.5.0...v2.5.1) (2021-01-11)
+
+
+### Bug Fixes
+
+* example/package.json & example/yarn.lock to reduce vulnerabilities ([587821d](https://github.com/mrvmv/sequelize-mig/commit/587821d26284eea4f9caa1f8fff9f9e23dc0ecc7))
+
+# [2.5.0](https://github.com/mrvmv/sequelize-mig/compare/v2.4.1...v2.5.0) (2020-12-31)
+
+
+### Features
+
+* Force new release, add sync to readme ([7bdb2b7](https://github.com/mrvmv/sequelize-mig/commit/7bdb2b7e91a169fd859a476ef560df0f8c4f8b37))
+
 ## [2.4.1](https://github.com/mrvmv/sequelize-mig/compare/v2.4.0...v2.4.1) (2020-10-30)
 
 
