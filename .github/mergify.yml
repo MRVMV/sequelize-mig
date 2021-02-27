@@ -4,7 +4,10 @@ pull_request_rules:
       - author~=^(MRVMV|depfu\[bot\]|dependabot(|-preview)\[bot\])$
       - -label~=.*\bwip\b.*
       - status-success=CodeQL
-      - status-success=Node.js CI
+      - status-success=Analyze (javascript)
+      - status-success=build (12.x)
+      - status-success=build (14.x)
+      - status-success=build (15.x)
     actions:
       merge:
         method: merge
@@ -12,7 +15,7 @@ pull_request_rules:
     conditions:
       - -author~=^(MRVMV|depfu\[bot\]|dependabot(|-preview)\[bot\])$
     actions:
-        comment:
-          message: |
-              Welcome {{author}} to our great project!
-              We're delight to have you onboard <3
+      comment:
+        message: |
+          Welcome {{author}} to our great project!
+          We're delight to have you onboard <3
