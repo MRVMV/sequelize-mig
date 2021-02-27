@@ -3,8 +3,8 @@ pull_request_rules:
     conditions:
       - author~=^(MRVMV|depfu\[bot\]|dependabot(|-preview)\[bot\])$
       - -label~=.*\bwip\b.*
-      - status-success=Travis CI - Pull Request
       - status-success=CodeQL
+      - status-success=release
     actions:
       merge:
         method: merge
