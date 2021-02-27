@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/mrvmv/sequelize-mig/compare/v3.0.0...v3.0.1) (2021-02-27)
+
+
+### Bug Fixes
+
+* not putting cjs if module ([fef2c10](https://github.com/mrvmv/sequelize-mig/commit/fef2c10678a220e0df4879f39f1547f129320a2a))
+
 # [3.0.0](https://github.com/mrvmv/sequelize-mig/compare/v2.8.1...v3.0.0) (2021-02-27)
 
 
