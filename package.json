@@ -1,6 +1,6 @@
 {
   "name": "sequelize-mig",
-  "version": "2.6.0",
+  "version": "2.8.0",
   "type": "module",
   "description": "Sequelize migration generator and es6 init tool",
   "main": "index.js",

@@ -1,3 +1,15 @@
+# [2.8.0](https://github.com/mrvmv/sequelize-mig/compare/v2.7.0...v2.8.0) (2021-02-27)
+
+
+### Bug Fixes
+
+* important one for file path ([a3f6b0e](https://github.com/mrvmv/sequelize-mig/commit/a3f6b0ed5ef531c95f087ca095d28045f699eaf8))
+
+
+### Features
+
+* just to force update version and publish ([3201376](https://github.com/mrvmv/sequelize-mig/commit/3201376da91e787a0619edd8c7438f08589d2220))
+
 # [2.6.0](https://github.com/mrvmv/sequelize-mig/compare/v2.5.1...v2.6.0) (2021-01-11)
 
 
