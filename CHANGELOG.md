@@ -1,3 +1,11 @@
+## [2.8.1](https://github.com/mrvmv/sequelize-mig/compare/v2.8.0...v2.8.1) (2021-02-27)
+
+
+### Bug Fixes
+
+* if defaultValue in getDefaultValueType is null ([8f430d8](https://github.com/mrvmv/sequelize-mig/commit/8f430d832be3632d9f5d97b4013d6da6aa6c3b34))
+* update mergify conf and force update ([3606038](https://github.com/mrvmv/sequelize-mig/commit/360603893b213dfb15d8ee740fa8b58936856dc5))
+
 # [2.8.0](https://github.com/mrvmv/sequelize-mig/compare/v2.7.0...v2.8.0) (2021-02-27)
 
 
