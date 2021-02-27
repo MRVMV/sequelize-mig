@@ -4,7 +4,7 @@ pull_request_rules:
       - author~=^(MRVMV|depfu\[bot\]|dependabot(|-preview)\[bot\])$
       - -label~=.*\bwip\b.*
       - status-success=CodeQL
-      - status-success=release
+      - status-success=Node.js CI
     actions:
       merge:
         method: merge
