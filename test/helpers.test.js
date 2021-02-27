@@ -23,7 +23,7 @@ test('pathConfig', async () => {
   expect(Config).toStrictEqual({
     modelsDir: 'example/example/models',
     migrationsDir: 'example/example/migrations',
-    stateDir: 'example/example/models',
+    stateDir: 'example/example/migrations',
     indexDir: 'example/example/models/index.js',
     packageDir: 'example/example/package.json',
   });
