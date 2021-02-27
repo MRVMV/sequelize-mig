@@ -47,6 +47,8 @@ const make = async (argv) => {
   // eslint-disable-next-line import/no-dynamic-require
   const { type } = require(configOptions.packageDir);
 
+  argv.es6 ??= type === 'module';
+
   // write migration to file
   const info = writeMigration(
     currentState.revision,
@@ -54,7 +56,7 @@ const make = async (argv) => {
     configOptions.migrationsDir,
     argv.name ? argv.name : 'noname',
     argv.comment ? argv.comment : '',
-    argv.es6 !== null ? argv.es6 : type === 'module',
+    argv.es6,
   );
 
   log(
