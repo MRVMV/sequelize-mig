@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/mrvmv/sequelize-mig/compare/v2.8.1...v3.0.0) (2021-02-27)
+
+
+### Bug Fixes
+
+* current should be in migrations not in models ([08c93b0](https://github.com/mrvmv/sequelize-mig/commit/08c93b0505134f63c103ca769a502a0aefbd6eb1))
+
+
+### BREAKING CHANGES
+
+* you should move your current to migrations folder
+
 ## [2.8.1](https://github.com/mrvmv/sequelize-mig/compare/v2.8.0...v2.8.1) (2021-02-27)
 
 
