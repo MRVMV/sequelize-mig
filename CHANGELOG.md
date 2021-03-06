@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/mrvmv/sequelize-mig/compare/v3.0.1...v3.1.0) (2021-03-06)
+
+
+### Features
+
+* add auto-detection of potential renamed columns ([5471179](https://github.com/mrvmv/sequelize-mig/commit/5471179eff2b0bdf9f2d9a34cc20aec6d0463757))
+
 ## [3.0.1](https://github.com/mrvmv/sequelize-mig/compare/v3.0.0...v3.0.1) (2021-02-27)
 
 
