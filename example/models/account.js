@@ -15,7 +15,7 @@ module.exports = (DB, { INTEGER, BIGINT, DATE, STRING, ENUM, BOOLEAN, DATEONLY, 
       test_param: { type: BIGINT, allowNull: false, defaultValue: 1000 },
       first_name: { type: STRING, allowNull: false, defaultValue: 'abc', field: 'first-name' },
       last_name: { type: STRING, allowNull: false, defaultValue: '' },
-      nickname: { type: STRING, allowNull: false, defaultValue: '' },
+      // nickname: { type: STRING, allowNull: false, defaultValue: '' },
       gender: {
         type: ENUM,
         allowNull: false,
