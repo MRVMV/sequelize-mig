@@ -1,7 +1,9 @@
 import { createRequire } from 'module';
+
 import prettier from 'prettier';
-import { pathConfig } from '../../lib/helpers.js';
+
 import { migrate, updateMigrationState, writeMigration } from '../../lib/migration.js';
+import { pathConfig } from '../../lib/helpers.js';
 import { setLogLevel, log } from '../../lib/functions.js';
 
 const require = createRequire(import.meta.url);
