@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/mrvmv/sequelize-mig/compare/v3.1.0...v3.1.1) (2021-03-07)
+
+
+### Bug Fixes
+
+* renameColumn deleting all D and N diffs ([89560d8](https://github.com/mrvmv/sequelize-mig/commit/89560d876a0fcc999c131ff0877333d4b48c7089))
+
 # [3.1.0](https://github.com/mrvmv/sequelize-mig/compare/v3.0.1...v3.1.0) (2021-03-06)
 
 
