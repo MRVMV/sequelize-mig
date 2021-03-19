@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/mrvmv/sequelize-mig/compare/v3.1.1...v3.1.2) (2021-03-19)
+
+
+### Bug Fixes
+
+* removes node 14 incompatible syntax ([477c68c](https://github.com/mrvmv/sequelize-mig/commit/477c68ce3436956bc6f9edcb8e62a38e1af96b6c))
+
 ## [3.1.1](https://github.com/mrvmv/sequelize-mig/compare/v3.1.0...v3.1.1) (2021-03-07)
 
 
