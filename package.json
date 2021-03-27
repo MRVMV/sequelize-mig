@@ -96,7 +96,7 @@
     "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "@babel/parser": "^7.13.9",
+    "@babel/parser": "^7.13.13",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/inquirer": "^7.3.1",
