@@ -1,3 +1,10 @@
+## [3.1.3](https://github.com/mrvmv/sequelize-mig/compare/v3.1.2...v3.1.3) (2021-03-30)
+
+
+### Bug Fixes
+
+* run migrations in transaction ([492c776](https://github.com/mrvmv/sequelize-mig/commit/492c77636c34961a0931fe14dc1293b5861e3759))
+
 ## [3.1.2](https://github.com/mrvmv/sequelize-mig/compare/v3.1.1...v3.1.2) (2021-03-19)
 
 
