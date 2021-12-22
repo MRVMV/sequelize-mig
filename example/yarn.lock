@@ -56,11 +56,6 @@ ansi-styles@^4.0.0:
   dependencies:
     color-convert "^2.0.1"
 
-any-promise@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/any-promise/-/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
-  integrity sha1-q8av7tzqUugJzcA3au0845Y10X8=
-
 aproba@^1.0.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
@@ -1051,12 +1046,10 @@ resolve@^1.5.0:
   dependencies:
     path-parse "^1.0.6"
 
-retry-as-promised@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/retry-as-promised/-/retry-as-promised-4.0.0.tgz#e19dc63474860f751e371ccccbfa16f6c1efeaa0"
-  integrity sha512-zuqltYoBckZPoqLjC0eyvGpmM/psgpcreq0PLYVzBSb0Xq382XJrKNgu+fgHDy9U3R66adgFe5Viyx3D+gRvXA==
-  dependencies:
-    any-promise "^1.3.0"
+retry-as-promised@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/retry-as-promised/-/retry-as-promised-5.0.0.tgz#f4ecc25133603a2d2a7aff4a128691d7bc506d54"
+  integrity sha512-6S+5LvtTl2ggBumk04hBo/4Uf6fRJUwIgunGZ7CYEBCeufGFW1Pu6ucUf/UskHeWOIsUcLOGLFXPig5tR5V1nA==
 
 rimraf@2, rimraf@^2.6.1:
   version "2.7.1"
@@ -1120,10 +1113,10 @@ sequelize-pool@^7.1.0:
   resolved "https://registry.yarnpkg.com/sequelize-pool/-/sequelize-pool-7.1.0.tgz#210b391af4002762f823188fd6ecfc7413020768"
   integrity sha512-G9c0qlIWQSK29pR/5U2JF5dDQeqqHRragoyahj/Nx4KOOQ3CPPfzxnfqFPCSB7x5UgjOgnZ61nSxz+fjDpRlJg==
 
-sequelize@^6.12.0:
-  version "6.12.0"
-  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-6.12.0.tgz#065993b35370dab443086b2e98e684d690c7a7f4"
-  integrity sha512-vn1Mq98EnwXM/xtohBcF9dQsIbgeTm7u8elwD40wu4bgnXOGTjKCVqGTekySMjnnihM06rIbDbpcLA4uwNTyCw==
+sequelize@^6.12.1:
+  version "6.12.1"
+  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-6.12.1.tgz#c52c4a40a2761fdc95df873502b7dfac0c4b72a4"
+  integrity sha512-5XLBEapH/teme49zx4q6uN+5N4u50qSztW03Mc7T6uJmp1WdCXEcuGCxgGfZo0oQcG6OpkLgfZFn+ysr2iVSmA==
   dependencies:
     "@types/debug" "^4.1.7"
     debug "^4.3.3"
@@ -1133,7 +1126,7 @@ sequelize@^6.12.0:
     moment "^2.29.1"
     moment-timezone "^0.5.34"
     pg-connection-string "^2.5.0"
-    retry-as-promised "^4.0.0"
+    retry-as-promised "^5.0.0"
     semver "^7.3.5"
     sequelize-pool "^7.1.0"
     toposort-class "^1.0.1"
