@@ -97,8 +97,8 @@
   },
   "devDependencies": {
     "@babel/parser": "^7.15.7",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.1",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "@types/inquirer": "^8.1.1",
     "@types/jest": "^27.0.0",
     "@types/sequelize": "^4.28.9",
@@ -113,7 +113,7 @@
     "eslint-plugin-import": "^2.23.4",
     "jest": "^27.0.3",
     "prettier-eslint": "^13.0.0",
-    "semantic-release": "^17.4.2",
+    "semantic-release": "^18.0.1",
     "semantic-release-cli": "^5.4.4",
     "typescript": "^4.4.3"
   }
