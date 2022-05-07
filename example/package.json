@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "sequelize": "^6.19.0",
-    "sqlite3": "^5.0.7"
+    "sqlite3": "^5.0.8"
   },
   "devDependencies": {
     "sequelize-cli": "^6.4.1"
