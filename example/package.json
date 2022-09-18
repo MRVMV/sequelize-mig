@@ -9,7 +9,7 @@
   "author": "MRVMV",
   "license": "MIT",
   "dependencies": {
-    "sequelize": "^6.21.6",
+    "sequelize": "^6.23.0",
     "sqlite3": "^5.1.1"
   },
   "devDependencies": {
