@@ -1009,10 +1009,10 @@ semver@^7.3.5:
   dependencies:
     lru-cache "^6.0.0"
 
-sequelize-cli@^6.5.1:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/sequelize-cli/-/sequelize-cli-6.5.1.tgz#e084c82b11e86ed9bd7e47fde4e44cfbc6e81e2c"
-  integrity sha512-36hfZKNeZkIshp6L0jPVQ27xNLzgDPpiZokQsvo0M882AtAm+KhGOIViR0BecWb0Xz8+uSq03xxcl7RfMgyIRA==
+sequelize-cli@^6.5.2:
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/sequelize-cli/-/sequelize-cli-6.5.2.tgz#8c0b061a213a550ba812029c0fabeb5a38843d2c"
+  integrity sha512-ltXvQOxFFb9pVuDqPJYOS3/X32OVni9zK1S0d0JfloSjmCKZmMDFBWndZbcbJH0QBfyxTt7FLt/kSmKwTRlbsQ==
   dependencies:
     cli-color "^2.0.3"
     fs-extra "^9.1.0"
